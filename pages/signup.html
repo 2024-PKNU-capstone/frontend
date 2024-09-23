@@ -72,15 +72,16 @@
             font-size: 14px;
             color: #333;
         }
-
-        .checkbox-group {
-            display: flex;
-            justify-content: flex-start;
-            margin: 10px 0;
+        .check-code{
+            padding: 10px;
+            background-color: sandybrown;
+            border-radius: 30px;
+            color: white;
+            border: none;
         }
 
-        .checkbox-label {
-            font-size: 14px;
+        .check-code:hover{
+            background-color: salmon;
         }
 
         /* 모바일 화면 최적화를 위한 미디어 쿼리 */
@@ -143,16 +144,13 @@
         <label class="input-label" for="confirm-password">비밀번호 재확인</label>
         <input type="password" id="confirm-password" class="input-field" placeholder="비밀번호를 다시 입력하세요" required>
 
-        <div class="checkbox-group">
-            <label class="checkbox-label">
-                <input type="checkbox" name="inviteCode" value="yes"> 초대코드
-            </label>
-        </div>
+        <button class="check-code">초대코드 유효성 검사</button>
+        
         <button class="signup-btn" onclick="validateForm()">회원가입</button>
     </div>
 
     <script>
-        function validateForm() {
+        function validateForm() { // input 유효성 검사하는 함수
             var password = document.getElementById("password").value;
             var confirmPassword = document.getElementById("confirm-password").value;
 

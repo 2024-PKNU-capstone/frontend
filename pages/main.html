@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>학생회비 관리</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .container {
+            padding: 20px;
+            white-space: nowrap;
+        }
+
+        .balance {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .recent-transactions {
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: flex-start;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            padding: 10px 20px;
+            overflow-x: auto; /* 가로 스크롤을 활성화 */
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+            scroll-snap-type: x mandatory; /* 스크롤 시 버튼이 딱 맞게 배치 */
+        }
+
+        button {
+            min-width: 30%;
+            padding: 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 15px;
+            margin-right: 10px; /* 버튼 간격 */
+            text-align: center;
+            white-space: nowrap;
+            scroll-snap-align: start; /* 버튼을 스크롤 시 정렬 */
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* 작은 화면일 때 버튼 크기를 조정 */
+        @media (max-width: 600px) {
+            .buttons{
+                height: 15%;
+            }
+            button {
+                min-width: 30%;
+                padding: 10px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="balance">
+        <strong>학생회비 잔액</strong>
+            <!-- 잔액 -->
+        </div>
+
+        <div class="recent-transactions">
+            <strong>최근 거래내역</strong>
+            <ul>
+                <!-- 거래 내역 리스트 -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- 버튼 영역 -->
+    <div class="buttons">
+        <button onclick="myPage()">마이페이지</button>
+        <button onclick="registerLedger()">장부 등록하기</button>
+        <button onclick="viewLedger()">우리학과 장부보기</button>
+        <button onclick="viewContributors()">납부자 목록보기</button>
+        <button onclick="delegatePresident()">회장 위임하기</button>
+        <button onclick="manageAppointments()">임명 관리</button>
+        <button onclick="registerReceipt()">영수증 등록하기</button>
+    </div>
+
+    <script>
+        function viewLedger() {
+            alert('마이페이지를 클릭했습니다.');
+        }
+
+        function viewLedger() {
+            alert('우리학과 장부보기를 클릭했습니다.');
+        }
+
+        function delegatePresident() {
+            alert('회장 위임하기를 클릭했습니다.');
+        }
+
+        function manageAppointments() {
+            alert('임명 관리를 클릭했습니다.');
+        }
+
+        function viewContributors() {
+            alert('납부자 목록보기를 클릭했습니다.');
+        }
+
+        function registerReceipt() {
+            alert('영수증 등록하기를 클릭했습니다.');
+        }
+
+        function registerLedger() {
+            alert('장부 등록하기를 클릭했습니다.');
+        }
+    </script>
+
+</body>
+</html>
