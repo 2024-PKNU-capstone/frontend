@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>감사 메인페이지</title>
+    <link rel="stylesheet" href="../CSS/main.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="balance">
+        <strong>학생회비 잔액</strong>
+            <!-- 잔액 -->
+        </div>
+
+        <div class="recent-transactions">
+            <strong>최근 거래내역</strong>
+            <ul>
+                <!-- 거래 내역 리스트 -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- 버튼 영역 -->
+    <div class="buttons">
+        <button onclick="myPage()">마이페이지</button>
+        <button onclick="viewLedger()">우리학과 장부보기</button>
+        <button onclick="approveLedger()">장부 승인하기</button>
+    </div>
+
+    <script>
+        function myPage() {
+            alert('마이페이지를 클릭했습니다.');
+        }
+
+        function viewLedger() {
+            alert('우리학과 장부보기를 클릭했습니다.');
+        }
+
+        function approveLedger() {
+            alert('장부 승인하기를 클릭했습니다.');
+        }
+    </script>
+</body>
+</html>

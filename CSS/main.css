@@ -1,0 +1,60 @@
+/* 작은 화면일 때(모바일) 버튼 크기를 조정 */
+@media (max-width: 600px) {
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .container {
+    padding: 20px;
+    white-space: nowrap;
+  }
+
+  .balance {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .recent-transactions {
+    margin-bottom: 20px;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: flex-start;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    padding: 10px 20px;
+    overflow-x: auto; /* 가로 스크롤을 활성화 */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    scroll-snap-type: x mandatory; /* 스크롤 시 버튼이 딱 맞게 배치 */
+    height: 15%; /* 작은 화면에서 버튼 높이 조정 */
+  }
+
+  button {
+    min-width: 30%;
+    padding: 10px;
+    font-size: 12px;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border: solid 2px;
+    border-radius: 15px;
+    margin-right: 10px; /* 버튼 간격 */
+    text-align: center;
+    white-space: nowrap;
+    scroll-snap-align: start; /* 버튼을 스크롤 시 정렬 */
+  }
+
+  button:hover {
+    background-color: gray;
+  }
+}
