@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회장 메인페이지</title>
-    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../../CSS/main.css">
 </head>
 <body>
 
@@ -39,24 +39,26 @@
 
         function viewLedger() {
             alert('우리학과 장부보기를 클릭했습니다.');
+            window.location.href = '../ledger/viewLedger.html';
         }
 
         function viewContributors() {
             alert('납부자 목록보기를 클릭했습니다.');
         }
 
-        function delegatePresident() {
+        function delegatePresident() { // 위임하기는 영어로 delegate
             alert('회장 위임하기를 클릭했습니다.');
+            window.location.href = '../delegate/delegate.html';
         }
 
         function manageAppointments() {
-            alert('임명 관리를 클릭했습니다.');
+            alert('임명 하기를 클릭했습니다.');
+            window.location.href = '../appoint/appoint.html';
         }
 
         function approveLedger() {
             alert('장부 승인하기를 클릭했습니다.');
         }
     </script>
-
 </body>
 </html>
