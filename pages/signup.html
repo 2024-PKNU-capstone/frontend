@@ -85,10 +85,10 @@
     </style>
 </head>
 <body>
-
+    <script src="../js/signup.js" type="module"></script>
     <div class="signup-container">
         <h2>회원가입</h2>
-
+        <form id ="signup-form">
         <label class="input-label" for="school">학교</label>
         <input type="text" id="school" class="input-field" placeholder="학교명을 입력하세요" required>
 
@@ -115,7 +115,8 @@
 
         <button class="check-code">초대코드 유효성 검사</button>
         
-        <button class="signup-btn" onclick="validateForm()">회원가입</button>
+        <button class="signup-btn" type="submit">회원가입</button>
+    </form>
     </div>
 
     <script>
