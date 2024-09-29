@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>부회장 메인페이지</title>
-    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../../CSS/main.css">
 </head>
 <body>
 
@@ -27,8 +27,6 @@
         <button onclick="myPage()">마이페이지</button>
         <button onclick="viewLedger()">우리학과 장부보기</button>
         <button onclick="viewContributors()">납부자 목록보기</button>
-        <button onclick="delegatePresident()">회장 위임하기</button>
-        <button onclick="manageAppointments()">임명 관리</button>
         <button onclick="approveLedger()">장부 승인하기</button>
     </div>
 
@@ -39,24 +37,16 @@
 
         function viewLedger() {
             alert('우리학과 장부보기를 클릭했습니다.');
+            window.location.href = '../ledger/viewLedger.html';
         }
 
         function viewContributors() {
             alert('납부자 목록보기를 클릭했습니다.');
         }
 
-        function delegatePresident() {
-            alert('회장 위임하기를 클릭했습니다.');
-        }
-
-        function manageAppointments() {
-            alert('임명 관리를 클릭했습니다.');
-        }
-
         function approveLedger() {
             alert('장부 승인하기를 클릭했습니다.');
         }
     </script>
-
 </body>
 </html>

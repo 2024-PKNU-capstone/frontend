@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 페이지</title>
+    <link rel="stylesheet" href="../../CSS/login&signup/signup.css">
+</head>
+<body>
+
+    <div class="signup-container">
+        <h2>회원가입</h2>
+
+        <label class="input-label" for="school">학교</label>
+        <input type="text" id="school" class="input-field" placeholder="학교명을 입력하세요" required>
+
+        <label class="input-label" for="college">단과대학</label>
+        <input type="text" id="college" class="input-field" placeholder="단과대학을 입력하세요" required>
+
+        <label class="input-label" for="department">학과</label>
+        <input type="text" id="department" class="input-field" placeholder="학과명을 입력하세요" required>
+
+        <label class="input-label" for="name">이름</label>
+        <input type="text" id="name" class="input-field" placeholder="이름을 입력하세요" required>
+
+        <label class="input-label" for="studentId">학번</label>
+        <input type="text" id="studentId" class="input-field" placeholder="학번을 입력하세요" required>
+
+        <label class="input-label" for="username">ID</label>
+        <div class="id-field-container">
+            <input type="text" id="username" class="input-field username" placeholder="ID를 입력하세요" required>
+            <button class="check-username">중복 검사</button>
+        </div>
+        <p id="username-message"></p> <!-- 중복 검사 결과를 표시할 영역 -->
+
+        <label class="input-label" for="password">비밀번호</label>
+        <input type="password" id="password" class="input-field" placeholder="비밀번호를 입력하세요" required>
+
+        <label class="input-label" for="confirm-password">비밀번호 재확인</label>
+        <input type="password" id="confirm-password" class="input-field" placeholder="비밀번호를 다시 입력하세요" required>
+
+        <label class="input-label" for="inviteCode">초대 코드</label>
+        <input type="text" id="inviteCode" class="input-field" placeholder="초대 코드를 입력하세요" required>
+
+        <button class="signup-btn">회원가입</button>
+    </div>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="../../js/login&signup/signup.js"></script>
+</body>
+</html>

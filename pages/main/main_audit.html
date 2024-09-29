@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>감사 메인페이지</title>
-    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../../CSS/main.css">
 </head>
 <body>
-
     <div class="container">
         <div class="balance">
         <strong>학생회비 잔액</strong>
@@ -27,6 +26,7 @@
         <button onclick="myPage()">마이페이지</button>
         <button onclick="viewLedger()">우리학과 장부보기</button>
         <button onclick="approveLedger()">장부 승인하기</button>
+        <button onclick="delegate()">감사 위임하기</button>
     </div>
 
     <script>
@@ -36,10 +36,16 @@
 
         function viewLedger() {
             alert('우리학과 장부보기를 클릭했습니다.');
+            window.location.href = '../ledger/viewLedger.html';
         }
 
         function approveLedger() {
             alert('장부 승인하기를 클릭했습니다.');
+        }
+
+        function delegate() {
+            alert('감사 위임하기를 클릭했습니다.'); // 위임하기는 영어로 delegate
+            window.location.href = '../appoint/delegate.html';
         }
     </script>
 </body>

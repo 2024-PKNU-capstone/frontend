@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>메인페이지</title>
-    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../../CSS/main.css">
 </head>
 <body>
     <div class="container">
         <div class="balance">
-        <strong>학생회비 잔액</strong>
+            <strong>학생회비 잔액</strong>
             <!-- 잔액 -->
         </div>
 
@@ -27,6 +27,7 @@
         <button onclick="registerLedger()">장부 등록하기</button>
         <button onclick="viewLedger()">우리학과 장부보기</button>
         <button onclick="registerReceipt()">영수증 등록하기</button>
+        <button onclick="viewNonApproveLedger()">미등록 장부리스트 보기</button>
     </div>
 
     <script>
@@ -40,10 +41,16 @@
 
         function viewLedger() {
             alert('우리학과 장부보기를 클릭했습니다.');
+            window.location.href = '../ledger/viewLedger.html';
         }
 
         function registerReceipt() {
             alert('영수증 등록하기를 클릭했습니다.');
+        }
+
+        function viewNonApproveLedger() {
+            alert('미등록 장부리스트 보기를 클릭했습니다.');
+            window.location.href = '../ledger/viewNonApproveLedger.html';
         }
     </script>
 </body>

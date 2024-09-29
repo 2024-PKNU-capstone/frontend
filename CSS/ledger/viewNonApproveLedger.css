@@ -1,0 +1,57 @@
+/* 모바일 화면에 맞는 스타일 */
+@media only screen and (max-width: 600px) {
+
+  /* 전체 페이지에 대한 기본 스타일 */
+  body {
+      font-family: Arial, sans-serif;
+      padding: 10px;
+      margin: 0;
+      position: relative;
+      min-height: 100vh;
+  }
+
+  /* 제목 스타일 */
+  h1 {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 20px;
+  }
+
+  /* 장부 리스트 항목 스타일 */
+  .ledger-item {
+      background-color: #f9f9f9;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  /* 항목 내 텍스트 스타일 */
+  .ledger-item p {
+      margin: 5px 0;
+      font-size: 16px;
+  }
+
+  /* 버튼 스타일 */
+  button {
+      display: block;
+      width: 70%; /* 버튼의 가로 크기 */
+      padding: 10px 0;
+      font-size: 18px;
+      background-color: transparent; /* 배경색 없음 */
+      color: black; /* 텍스트 색상 */
+      border: 2px solid black; /* 검정 테두리 */
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      position: fixed; /* 화면 아래에 고정 */
+      bottom: 20px; /* 하단에서 20px 위에 위치 */
+      left: 50%;
+      transform: translateX(-50%); /* 중앙 정렬 */
+  }
+
+  /* 버튼을 클릭했을 때의 스타일 */
+  button:active {
+      background-color: #e0e0e0; /* 클릭 시 회색 배경 */
+  }
+}
