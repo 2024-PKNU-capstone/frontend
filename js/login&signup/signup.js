@@ -1,4 +1,18 @@
 $(document).ready(function () {
+    // URL에서 deptId와 role 추출
+    const urlParams = new URLSearchParams(window.location.search);
+    const departmentId = urlParams.get('deptId');
+    const role = urlParams.get('role') || "AUDITOR"; // role이 없는 경우 AUDITOR로 기본값 설정
+    let parentId = null;
+
+    if (colleageId == null){
+        console.log(departmentId,role);
+        parentId = departmentId
+    }
+    else{
+        console.log(colleageId)
+        parentId = colleageId
+    }
 
   // 회원가입 버튼 클릭 시 폼 검증 및 AJAX 요청 처리
   $(".signup-btn").on("click", function () {
@@ -24,21 +38,35 @@ $(document).ready(function () {
           return false;
       }
 
+      // 입력된 값 가져오기
+    const school = document.getElementById('school').value;
+    const college = document.getElementById('college').value;
+    const department = document.getElementById('department').value;
+    const name = document.getElementById('name').value;
+    const studentId = document.getElementById('studentId').value;
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    // 서버에 보낼 요청 바디를 구성합니다.
+    const requestBody = {
+        univ: school,
+        college: college,
+        dept: department,
+        name: name,
+        number: studentId,
+        loginId:username,
+        password:password
+    };
+
       // 회원가입 요청을 위한 AJAX
       $.ajax({
           type: 'POST',
-          url: '/api/users/join', // 회원가입 요청을 보낼 URL
+          url: `/api/univ/register/${role}?parentId=${parentId ? parentId : ''}`, // 회원가입 요청을 보낼 URL
           headers: {
               "Content-Type": "application/json; charset=utf-8"
           },
           data: JSON.stringify({
-              isChecked: true,  // 임의의 값 설정
-              inviteCode: inviteCode,
-              name: $("#name").val(),
-              login_id: $("#username").val(),
-              password: password,
-              passwordCheck: confirmPassword,
-              number: $("#studentId").val()
+              requestBody
           }),
           contentType: 'application/json',
           dataType: 'json',
@@ -78,3 +106,4 @@ $(document).ready(function () {
       });
   });
 });
+
