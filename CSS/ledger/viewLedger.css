@@ -1,0 +1,69 @@
+/* 모바일 화면에 맞는 스타일 */
+@media only screen and (max-width: 600px) {
+  /* 전체 페이지에 대한 기본 스타일 */
+  body {
+      font-family: Arial, sans-serif;
+      padding: 10px;
+      margin: 0;
+      position: relative;
+      min-height: 100vh; /* 화면 높이를 100%로 설정하여 버튼을 하단에 고정 */
+  }
+
+  /* 제목 스타일 */
+  h1 {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 20px;
+  }
+
+  /* 장부 리스트 영역 */
+  #account-book-list {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+  }
+
+  /* 개별 장부 항목 스타일 */
+  #account-book-list div {
+      background-color: #f9f9f9;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  /* 개별 항목 내 텍스트 스타일 */
+  #account-book-list div p {
+      margin: 5px 0;
+      font-size: 16px;
+  }
+
+  /* '더 불러오기' 버튼 스타일 */
+  #load-more {
+      display: block;
+      width: 70%; /* 버튼의 가로 길이를 70%로 설정 */
+      padding: 10px 0;
+      font-size: 18px;
+      background-color: transparent; /* 버튼의 배경색 제거 */
+      color: black; /* 버튼 텍스트 색상은 검정 */
+      border: 2px solid black; /* 테두리만 남기기 */
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      position: fixed; /* 버튼을 화면 아래에 고정 */
+      bottom: 20px; /* 화면 하단에서 20px 위로 고정 */
+      left: 50%;
+      transform: translateX(-50%); /* 가운데 정렬 */
+  }
+
+  /* '더 불러오기' 버튼 클릭 시 스타일 */
+  #load-more:active {
+      background-color: #e0e0e0; /* 클릭 시 회색 배경 */
+  }
+
+  .curved-hr {
+    height: 6px;
+    border-radius: 100px; /* 더 둥근 곡선 */
+    background-color: #2ecc71; /* 색상 변경 (옵션) */
+}
+}
