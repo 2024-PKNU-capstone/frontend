@@ -1,69 +1,62 @@
-/* 모바일 화면에 맞는 스타일 */
-@media only screen and (max-width: 600px) {
-  /* 전체 페이지에 대한 기본 스타일 */
-  body {
-      font-family: Arial, sans-serif;
-      padding: 10px;
-      margin: 0;
-      position: relative;
-      min-height: 100vh; /* 화면 높이를 100%로 설정하여 버튼을 하단에 고정 */
-  }
-
-  /* 제목 스타일 */
-  h1 {
-      font-size: 24px;
-      text-align: center;
-      margin-bottom: 20px;
-  }
-
-  /* 장부 리스트 영역 */
-  #account-book-list {
-      margin: 0;
-      padding: 0;
-      list-style-type: none;
-  }
-
-  /* 개별 장부 항목 스타일 */
-  #account-book-list div {
-      background-color: #f9f9f9;
-      padding: 15px;
-      margin-bottom: 10px;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-
-  /* 개별 항목 내 텍스트 스타일 */
-  #account-book-list div p {
-      margin: 5px 0;
-      font-size: 16px;
-  }
-
-  /* '더 불러오기' 버튼 스타일 */
-  #load-more {
-      display: block;
-      width: 70%; /* 버튼의 가로 길이를 70%로 설정 */
-      padding: 10px 0;
-      font-size: 18px;
-      background-color: transparent; /* 버튼의 배경색 제거 */
-      color: black; /* 버튼 텍스트 색상은 검정 */
-      border: 2px solid black; /* 테두리만 남기기 */
-      border-radius: 8px;
-      text-align: center;
-      cursor: pointer;
-      position: fixed; /* 버튼을 화면 아래에 고정 */
-      bottom: 20px; /* 화면 하단에서 20px 위로 고정 */
-      left: 50%;
-      transform: translateX(-50%); /* 가운데 정렬 */
-  }
-
-  /* '더 불러오기' 버튼 클릭 시 스타일 */
-  #load-more:active {
-      background-color: #e0e0e0; /* 클릭 시 회색 배경 */
-  }
-
-  .curved-hr {
-    height: 6px;
-    border-radius: 100px; /* 더 둥근 곡선 */
-    background-color: #2ecc71; /* 색상 변경 (옵션) */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+h1 {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 100%;
+    font-size: 1.5rem;
+    padding: 10px 0;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+    margin: 0;
+}
+
+.curved-hr {
+    width: 80%;
+    margin: 60px auto 20px; /* 제목 아래에 간격 확보 */
+    border: none;
+    height: 2px;
+    background-color: #ddd;
+}
+
+#account-book-list {
+    width: 80%;
+    margin: 0 auto;
+    text-align: left;
+    padding-top: 80px; /* 제목 영역 확보 */
+    padding-bottom: 60px; /* 버튼 영역 확보 */
+}
+
+.account-book-item {
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+#load-more {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    padding: 10px;
+    background-color: transparent;
+    color: black;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+#load-more:hover {
+    background-color: #f0f0f0;
 }
