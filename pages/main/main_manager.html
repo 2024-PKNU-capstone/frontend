@@ -31,25 +31,23 @@
     </div>
 
     <script>
-        function myPage() {
+        function myPage() { // 마이페이지 보기
             alert('마이페이지를 클릭했습니다.');
         }
 
-        function registerLedger() {
+        function registerLedger() { // 장부 등록하기
             alert('장부 등록하기를 클릭했습니다.');
         }
 
-        function viewLedger() {
-            alert('우리학과 장부보기를 클릭했습니다.');
+        function viewLedger() { // 장부리스트 보기
             window.location.href = '../ledger/viewLedger.html';
         }
 
-        function registerReceipt() {
-            alert('영수증 등록하기를 클릭했습니다.');
+        function registerReceipt() { // 영수증 등록하기
+            window.location.href = '../receipt/uploadReceipt.html'
         }
 
-        function viewNonApproveLedger() {
-            alert('미등록 장부리스트 보기를 클릭했습니다.');
+        function viewNonApproveLedger() { // 미등록 장부리스트 보기
             window.location.href = '../ledger/viewNonApproveLedger.html';
         }
     </script>

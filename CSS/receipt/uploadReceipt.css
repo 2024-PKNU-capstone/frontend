@@ -1,0 +1,69 @@
+/* 모바일 환경에서만 표시 */
+@media (max-width: 600px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+
+  /* 버튼 컨테이너 스타일 - 하단 중앙에 고정 */
+  .button-container {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+  }
+
+  /* 카메라 버튼 스타일 */
+  .camera-button, .upload-button {
+    width: 100px;
+    height: 100px;
+    border-radius: 20%;
+    background-color: white;
+    color: black;
+    font-size: 18px;
+    border: 2px solid black;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .camera-button:hover, .upload-button:hover {
+    background-color: gray;
+  }
+
+  #preview {
+    margin-top: 20px;
+    max-width: 100%;
+    max-height: 300px; /* 고정된 최대 높이 설정 */
+    width: auto;
+    height: auto;
+    object-fit: contain; /* 이미지 비율을 유지하며 컨테이너에 맞춤 */
+  }
+
+  .preview-container {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .preview-container img {
+    max-width: 100%;
+    max-height: 300px; /* 이미지가 컨테이너를 벗어나지 않도록 고정된 최대 높이 설정 */
+    height: auto;
+    object-fit: contain; /* 이미지 비율을 유지하며 잘림 없이 맞춤 */
+  }
+}

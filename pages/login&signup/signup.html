@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="../../CSS/login&signup/signup.css">
 </head>
 <body>
-
+    <script src="../../js/login&signup/signup.js" type="module"></script>
     <div class="signup-container">
         <h2>회원가입</h2>
-
+        <form id ="signup-form">
         <label class="input-label" for="school">학교</label>
         <input type="text" id="school" class="input-field" placeholder="학교명을 입력하세요" required>
 
@@ -27,11 +27,7 @@
         <input type="text" id="studentId" class="input-field" placeholder="학번을 입력하세요" required>
 
         <label class="input-label" for="username">ID</label>
-        <div class="id-field-container">
-            <input type="text" id="username" class="input-field username" placeholder="ID를 입력하세요" required>
-            <button class="check-username">중복 검사</button>
-        </div>
-        <p id="username-message"></p> <!-- 중복 검사 결과를 표시할 영역 -->
+        <input type="text" id="username" class="input-field" placeholder="ID를 입력하세요" required>
 
         <label class="input-label" for="password">비밀번호</label>
         <input type="password" id="password" class="input-field" placeholder="비밀번호를 입력하세요" required>
@@ -39,13 +35,39 @@
         <label class="input-label" for="confirm-password">비밀번호 재확인</label>
         <input type="password" id="confirm-password" class="input-field" placeholder="비밀번호를 다시 입력하세요" required>
 
-        <label class="input-label" for="inviteCode">초대 코드</label>
-        <input type="text" id="inviteCode" class="input-field" placeholder="초대 코드를 입력하세요" required>
-
-        <button class="signup-btn">회원가입</button>
+        <button class="check-code">초대코드 유효성 검사</button>
+        
+        <button class="signup-btn" type="submit">회원가입</button>
+    </form>
     </div>
 
-    <script type="text/javascript" src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="../../js/login&signup/signup.js"></script>
+    <script>
+        function validateForm() { // input 유효성 검사하는 함수
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirm-password").value;
+
+            // 모든 필드가 필수 입력
+            var fields = ["school", "college", "department", "name", "studentId", "username", "password", "confirm-password"];
+            for (var i = 0; i < fields.length; i++) {
+                var field = document.getElementById(fields[i]);
+                if (!field.value) {
+                    alert(field.previousElementSibling.innerText + "을(를) 입력해 주세요.");
+                    field.focus();
+                    return false;
+                }
+            }
+
+            // 비밀번호 일치 여부 확인
+            if (password !== confirmPassword) {
+                alert("비밀번호가 일치하지 않습니다. 다시 입력해주세요.");
+                document.getElementById("confirm-password").focus();
+                return false;
+            }
+
+            alert("회원가입이 완료되었습니다!");
+            // 실제 회원가입 동작을 수행할 수 있는 부분
+        }
+    </script>
 </body>
 </html>
+

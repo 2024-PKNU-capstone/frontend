@@ -1,0 +1,40 @@
+ /* 페이지 전체를 화면 중앙에 정렬 */
+ body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* 로딩 화면 스타일 */
+.loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 18px;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #ccc;
+  border-top-color: #333;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px;
+}
+
+/* 회전 애니메이션 */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 완료 메시지 스타일 */
+.complete-message {
+  display: none;
+  font-size: 20px;
+  color: green;
+}

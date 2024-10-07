@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>영수증 등록</title>
+  <!-- 외부 CSS 파일 링크 -->
+  <link rel="stylesheet" href="../../CSS/receipt/uploadReceipt.css">
+  <!-- jQuery 라이브러리 추가 -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+  <!-- 이미지 미리보기 영역 -->
+  <div class="preview-container">
+    <!-- 이미지 미리보기를 위한 <img> 요소로, 선택한 이미지가 여기에 표시됨 -->
+    <img id="preview" alt="Preview Image" style="display: none;">
+  </div>
+
+  <!-- 버튼 컨테이너 영역 -->
+  <div class="button-container">
+    <!-- 카메라 버튼: 클릭 시 파일 입력 필드를 호출하여 카메라를 염 -->
+    <button class="camera-button" onclick="document.getElementById('cameraInput').click();">
+      카메라
+    </button>
+    <!-- 등록 버튼: 클릭 시 파일을 업로드하는 함수 호출 -->
+    <button class="upload-button" onclick="uploadReceipt()">
+      등록하기
+    </button>
+  </div>
+
+  <!-- 파일 입력 필드 (카메라 사용 포함) -->
+  <input type="file" id="cameraInput" accept="image/*" capture="environment" style="display:none" onchange="showPreview(event)">
+  <!-- 
+    accept="image/*": 이미지 파일만 선택 가능
+    capture="environment": 기본적으로 후면 카메라를 사용하여 이미지를 캡처
+    style="display:none": 화면에 표시되지 않도록 숨김
+    onchange="showPreview(event)": 파일이 선택되면 showPreview 함수를 호출하여 미리보기 업데이트
+  -->
+
+  <script>
+    // 이미지 미리보기 함수 정의
+    function showPreview(event) {
+      const file = event.target.files[0]; // 선택된 첫 번째 파일 객체
+      if (file) {
+        const reader = new FileReader(); // FileReader 객체 생성
+        reader.onload = function(e) { // 파일 로드 완료 후 실행할 함수 정의
+          const preview = document.getElementById("preview"); // 미리보기 <img> 요소 선택
+          preview.src = e.target.result; // 이미지 데이터를 <img> 요소의 src에 할당하여 표시
+          preview.style.display = "block"; // 미리보기 이미지 표시
+        };
+        reader.readAsDataURL(file); // 파일을 Data URL로 읽어 이미지 데이터를 얻음
+      }
+    }
+
+    // 파일 업로드 함수 정의
+    function uploadReceipt() {
+      const fileInput = document.getElementById('cameraInput'); // 파일 입력 필드 선택
+      const files = fileInput.files; // 선택된 파일 목록
+
+      // 파일이 선택되지 않았을 경우 경고 메시지를 표시하고 함수 종료
+      if (files.length === 0) {
+        alert("업로드할 파일을 선택하세요.");
+        return;
+      }
+
+      const formData = new FormData(); // 파일을 서버로 전송하기 위해 FormData 객체 생성
+      $.each(files, function(i, file) { // 선택된 파일을 순회하여 FormData에 추가
+        formData.append("receipts", file); // "receipts"라는 이름으로 파일 추가
+      });
+
+      // AJAX 요청을 통해 서버에 파일 업로드
+      $.ajax({
+        url: '/api/receipts/upload',  // 서버 API URL (명세서에 따른 URL)
+        type: 'POST', // HTTP 메서드: POST 사용
+        headers: {
+          "Authorization": "Bearer {token}", // 인증 토큰 (API 명세서에 따른 Bearer 토큰 방식)
+        },
+        data: formData, // FormData 객체 (파일 데이터 포함)
+        contentType: false, // 파일 업로드 시 필요: 기본 contentType 사용 안 함
+        processData: false, // 데이터의 자동 변환 방지 (파일 업로드 시 필요)
+        
+        // 요청 성공 시 실행되는 콜백 함수
+        success: function(response, status, xhr) {
+          if (xhr.status === 201) { // HTTP 상태 코드 201(Created)일 경우
+            alert("영수증 업로드 성공: " + response.message); // 성공 메시지 표시
+            // 서버가 응답 헤더에 포함한 새 Access-Token 및 Refresh-Token을 콘솔에 출력
+            console.log("Access-Token:", xhr.getResponseHeader("Access-Token"));
+            console.log("Refresh-Token:", xhr.getResponseHeader("Refresh-Token"));
+          }
+        },
+        
+        // 요청 실패 시 실행되는 콜백 함수
+        error: function(xhr, status, error) {
+          alert("영수증 업로드 실패: " + xhr.responseText); // 오류 메시지 표시
+        }
+      });
+    }
+  </script>
+</body>
+</html>
