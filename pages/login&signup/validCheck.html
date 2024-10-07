@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>유효성 검사</title>
+  <link rel="stylesheet" href="../../CSS/login&signup/validCheck.css">
+</head>
+<body>
+  <div id="loader" class="loader">
+    <div class="spinner"></div>
+    <p>유효성 검사 중입니다...</p>
+  </div>
+  <div id="completeMessage" class="complete-message">
+    완료되었습니다!
+  </div>
+
+  <script>
+    function validateCode() {
+      return new Promise((resolve) => {
+        // 유효성 검사
+      
+      });
+    }
+
+    async function runValidation() {
+      // 로딩 화면 표시
+      document.getElementById("loader").style.display = "flex";
+      document.getElementById("completeMessage").style.display = "none";
+
+      await validateCode(); // 유효성 검사 완료까지 대기
+
+      // 유효성 검사 완료 후 메시지 표시
+      document.getElementById("loader").style.display = "none";
+      document.getElementById("completeMessage").style.display = "block";
+    }
+
+    // 페이지 로드 시 유효성 검사 자동 실행
+    window.onload = runValidation;
+  </script>
+</body>
+</html>
