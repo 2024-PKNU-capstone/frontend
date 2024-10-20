@@ -13,6 +13,8 @@
             <!-- 잔액 -->
         </div>
 
+        <button id="check-account-btn">계좌 등록 조회</button>
+
         <div class="recent-transactions">
             <strong>최근 거래내역</strong>
             <ul>
@@ -29,7 +31,8 @@
         <button onclick="registerReceipt()">영수증 등록하기</button>
         <button onclick="viewNonApproveLedger()">미등록 장부리스트 보기</button>
     </div>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../../js/main/main_manager.js"></script>
     <script>
         function myPage() { // 마이페이지 보기
             alert('마이페이지를 클릭했습니다.');
