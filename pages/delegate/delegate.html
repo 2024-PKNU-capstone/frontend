@@ -30,12 +30,6 @@
     <button id="delegate-btn" disabled>위임하기</button>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        // 체크박스 상태에 따라 버튼 활성화/비활성화 설정
-        document.getElementById('consent').addEventListener('change', function() {
-            const delegateBtn = document.getElementById('delegate-btn');
-            delegateBtn.disabled = !this.checked;  // 체크되면 버튼 활성화, 아니면 비활성화
-        });
-    </script>
+    <script src="../../js/delegate/delegate.js"></script>
 </body>
 </html>
