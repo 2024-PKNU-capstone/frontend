@@ -44,7 +44,7 @@ $(document).ready(function() { // ready를 통해 DOM이 완전 준비되면 js�
       // AJAX 요청
       $.ajax({
           url: '/api/users/appoint',  // API 엔드포인트 URL? -> 맞는지 체크해야됨
-          method: 'POST',
+          method: 'PATCH',
           headers: {
               'Content-Type': 'application/json',
               'Authorization': '본인 인증 JWT'  // JWT 토큰 삽입
