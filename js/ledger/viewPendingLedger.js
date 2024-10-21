@@ -4,14 +4,14 @@ let currentPage = 1;
 // 장부 리스트를 서버에서 불러오는 함수
 function loadAccountBooks() {
     $.ajax({
-        url: '/api/account-books',  // api명세서 url
+        url: '/api/pending-account-books',  // api명세서 url -> 나중에 확인해야함
         type: 'GET',
         headers: {
             "Content-Type": "application/json",
             "Authorization": "Bearer {JWT_TOKEN}"  // 실제 JWT 토큰을 설정해야함
         },
         data: JSON.stringify({
-            status: "PUBLIC", // 공개된 장부 조회
+            status: "UNAUDITED", // 미감사 장부조회
             page: currentPage
         }),
         success: function(response) {
