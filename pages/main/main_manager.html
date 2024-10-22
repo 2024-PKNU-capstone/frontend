@@ -49,26 +49,30 @@
 
     <div class="bottom-menu-container">
         <div class="bottom-menu">
-            <button class="menu-btn">
+            <button class="menu-btn" onclick="myPage()">
                 <img src="../../resource/icons/icons8-사용자-30.png" alt="icon1">
                 마이페이지
             </button>
-            <button class="menu-btn">
+            <button class="menu-btn" onclick="registerLedger()">
                 <img src="../../resource/icons/icons8-문서-서명-32.png" alt="icon2">
                 
                 <p>장부</p> 
                 <p>등록하기</p>
             </button>
-            <button class="menu-btn">
+            <button class="menu-btn" onclick="viewLedger()">
                 <img src="../../resource/icons/icons8-문서-24.png" alt="icon3">
-                <p>  </p>
                 <p>우리학과</p>
                 <p>장부보기</p>
             </button>
-            <button class="menu-btn">
+            <button class="menu-btn" onclick="registerReceipt()">
                 <img src="../../resource/icons/icons8-영수증-24.png" alt="icon4">
                 <p>영수증</p>
                 <p>등록하기</p>
+            </button>
+            <button class="menu-btn" onclick="viewNonApproveLedger()">
+                <img src="../../resource/icons/icons8-문서-24.png" alt="icon3">
+                <p>미승인</p>
+                <p>장부보기</p>
             </button>
         </div>
     </div>
@@ -96,11 +100,11 @@
     <script src="../../js/main/main_manager.js"></script>
     <script>
         function myPage() {
-            alert('마이페이지를 클릭했습니다.');
+            window.location.href = '../myPage/myPage.html';
         }
 
         function registerLedger() {
-            alert('장부 등록하기를 클릭했습니다.');
+            window.location.href = '../ledger/addLedger.html';
         }
 
         function viewLedger() {

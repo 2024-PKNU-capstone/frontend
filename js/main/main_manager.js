@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
     const checkAccountBtn = document.getElementById('add-account-btn');
-
     saveTokenToLocalStorage();
     fetchTransactions(); // 페이지 시작 시 거래내역 업데이트 요청 추가
     fetchIsVerified();

@@ -20,7 +20,7 @@ consentCheckbox.addEventListener('change', updateButtonState);
 roleRadioButtons.forEach(radio => radio.addEventListener('change', updateButtonState));
 
 
-$(document).ready(function() { // ready를 통해 DOM이 완전 준비되면 js실행
+$(document).ready(function() { // ready를 통해 DOM이 완전 준비되면 js실행하게!!
   // '위임하기' 버튼 클릭 시
   $('#delegate-btn').on('click', function() {
       // 입력된 데이터 가져오기
