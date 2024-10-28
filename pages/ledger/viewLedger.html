@@ -3,16 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>장부 목록</title>
+    <link rel="stylesheet" href="../../CSS/main.css">
     <link rel="stylesheet" href="../../CSS/ledger/viewLedger.css">
-    <title>장부 리스트</title>
+
 </head>
 <body>
-    <h1>우리학과 등록장부 리스트</h1>
-    <div id="account-book-list"></div>
-    
-    <button id="load-more">더 불러오기</button>
+    <div class="main-container">
+        <!-- 프로필 섹션 -->
+        <div class="profile-section">
+            <!-- 왼쪽 대학 정보 및 이름 수직 배열 -->
+            <div class="profile-left">
+                <p class="university">부경대학교 컴퓨터공학부</p> <!-- 대학 정보 -->
+                <p class="name">박기재</p> <!-- 이름 -->
+            </div>
+            <!-- 오른쪽 역할 및 학번 수평 배열 -->
+            <div class="role-info">
+                <p class="role">총무</p> <!-- 역할 -->
+                <p class="id">201911111</p> <!-- 학번 -->
+            </div>
+        </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="../../js/ledger/viewLedger.js"></script>
+        <!-- 장부 리스트 섹션 -->
+        <div class="account-book-list">
+            <h2>장부 목록</h2> <!-- 잔액을 제목으로 설정 -->
+            <p class="temporary-period">임시공개기간</p>
+            <div class="transaction-item" onclick="location.href='./viewLedgerDetail.html'">
+                <span class="dot"></span>
+                <div class="transaction-info">
+                    <p class="transaction-title">핑크캠퍼스 비품구입</p>
+                    <p class="transaction-date">2024040411</p>
+                </div>
+                <p class="transaction-amount">-99,000원</p>
+            </div>
+            <!-- 반복 가능한 항목 -->
+            <div class="transaction-item">
+                <span class="dot"></span>
+                <div class="transaction-info">
+                    <p class="transaction-title">핑크캠퍼스 비품구입</p>
+                    <p class="transaction-date">2024040411</p>
+                </div>
+                <p class="transaction-amount">-99,000원</p>
+            </div>
+        </div>
+    </div>
+        <!-- 푸터 (메인화면으로 돌아가는 버튼) -->
+        <div class="footer">
+            <button class="footer-btn" onclick="goToMain()">메인 화면으로 돌아가기</button>
+        </div>
+    
 </body>
 </html>
+

@@ -1,0 +1,71 @@
+/* 승인 대기 중 장부 목록 섹션 */
+.pending-approval-section {
+    background-color: #F1F3F5;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.approval-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.approval-header strong {
+    font-size: 18px;
+    color: #343a40;
+}
+
+.see-all {
+    font-size: 14px;
+    color: #868e96;
+    cursor: pointer;
+}
+
+.approval-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.approval-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #E9ECEF;
+}
+
+.approval-item:last-child {
+    border-bottom: none;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background-color: #ADB5BD;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.approval-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.approval-title {
+    font-size: 16px;
+    color: #495057;
+}
+
+.approval-date {
+    font-size: 14px;
+    color: #ADB5BD;
+}
+
+.approval-doc-number {
+    font-size: 14px;
+    color: #868e96;
+}
