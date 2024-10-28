@@ -2,18 +2,17 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Noto Sans KR', sans-serif; /* 전체에 Noto Sans KR 폰트 적용 */
 }
 
 body {
-    font-family: 'Noto Sans KR', sans-serif; /* body에도 적용 */
+    font-family: 'Arial', sans-serif;
     background-color: #F8F9FA;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     height: 100vh;
-    overflow-x: hidden;
+    overflow-x: hidden; /* 전체 페이지 좌우 스크롤 방지 */
     width: 100%;
 }
 
@@ -76,6 +75,133 @@ body {
 .role-info .id {
     font-size: 14px;
     color: #495057;
+}
+
+/* 잔액 섹션 */
+.account-section {
+    background-color: #F1F3F5;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative; /* 새로고침 버튼을 이 영역에 고정 */
+}
+
+.account-section h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #343a40;
+}
+
+.account-info {
+    width: 100%; /* 섹션 전체 너비 사용 */
+    text-align: left; /* 글씨는 왼쪽 정렬 */
+}
+
+.account-info p {
+    font-size: 18px;
+    color: #868e96;
+}
+
+.add-account-btn {
+    background-color: #DEE2E6;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 28px;
+    color: #495057;
+    cursor: pointer;
+    margin-top: 20px; /* 버튼과 글씨 사이 간격 */
+    align-self: center; /* 버튼만 중앙 정렬 */
+}
+
+/* 새로고침 버튼 스타일 */
+.refresh-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    right: 20px; /* 오른쪽 끝에 배치 */
+    top:35px ; /* 약간 위로 */
+}
+
+.refresh-btn:hover {
+    transform: rotate(90deg); /* 새로고침 버튼 hover 시 회전 애니메이션 */
+    transition: transform 0.3s ease;
+}
+
+.refresh-btn img{
+    width: 24px;
+    height: 24px;
+}
+
+
+/* 거래내역 섹션 */
+.transaction-section {
+    background-color: #F1F3F5;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.transaction-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.transaction-header strong {
+    font-size: 18px;
+    color: #343a40;
+}
+
+.see-all {
+    font-size: 14px;
+    color: #868e96;
+    cursor: pointer;
+}
+
+.transaction-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.transaction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+    padding: 2px;
+}
+
+/* 거래 설명 텍스트 */
+.transaction-description {
+    font-size: 16px;
+    color: #343a40;
+    margin-bottom: 5px;
+}
+
+/* 거래 날짜 텍스트 */
+.transaction-date {
+    font-size: 14px;
+    color: #868e96;
+}
+
+/* 거래 금액 텍스트 */
+.transaction-amount p {
+    font-size: 16px;
+    font-weight: bold;
+    color: #495057;
+}
+
+/* 금액이 양수일 때 색상 (예: 입금) */
+.transaction-amount p.positive {
+    color: #28a745;
 }
 
 /* 하단 고정 메뉴 */
@@ -162,7 +288,7 @@ body {
     cursor: pointer;
 }
 
-/* 미디어 쿼리: 화면 너비가 600px 이하일 때만 적용 */
+/* 반응형 디자인 */
 @media screen and (max-width: 600px) {
     .main-container {
         padding: 10px;
@@ -177,7 +303,15 @@ body {
         flex-direction: column;
         gap: 5px;
     }
-    
+
+    .account-section {
+        padding: 20px;
+    }
+
+    .transaction-section {
+        padding: 15px;
+    }
+
     .name {
         font-size: 24px;
     }
@@ -185,7 +319,17 @@ body {
     .university {
         font-size: 14px;
     }
-    
+
+    .add-account-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+    }
+
+    .transaction-list p {
+        font-size: 16px;
+    }
+
     .menu-btn {
         min-width: 100px;
         height: 100px;
