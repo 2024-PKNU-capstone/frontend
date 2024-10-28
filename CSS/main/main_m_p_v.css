@@ -1,82 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #F8F9FA;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    height: 100vh;
-    overflow-x: hidden; /* 전체 페이지 좌우 스크롤 방지 */
-    width: 100%;
-}
-
-.main-container {
-    width: 100%;
-    max-width: 700px;
-    padding: 20px;
-    background-color: #FFF;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    overflow-x: hidden; /* 메인 컨테이너에서 좌우 스크롤 방지 */
-    margin-bottom: 70px; /* 하단 고정 메뉴와의 여백 */
-    height: calc(100vh - 70px); /* 모바일에서도 하단 고정 메뉴와의 간격을 유지 */
-}
-
-
-/* 프로필 섹션 */
-.profile-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-    background-color: #F1F3F5;
-    border-radius: 12px;
-    width: 100%;
-    margin-top: 20px;
-}
-
-.profile-left {
-    display: flex;
-    flex-direction: column;
-}
-
-.university {
-    font-size: 14px;
-    color: #868e96;
-}
-
-.name {
-    font-size: 24px;
-    font-weight: bold;
-    color: #343a40;
-    margin-top: 5px;
-}
-
-.role-info {
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-}
-
-.role-info .role {
-    font-size: 14px;
-    color: #495057;
-    margin-right: 10px;
-}
-
-.role-info .id {
-    font-size: 14px;
-    color: #495057;
-}
-
 /* 잔액 섹션 */
 .account-section {
     background-color: #F1F3F5;
@@ -204,120 +125,17 @@ body {
     color: #28a745;
 }
 
-/* 하단 고정 메뉴 */
-.bottom-menu-container {
-    bottom: 60px; /* 하단에서 약간의 여백 추가 */
-    width: 100%;
-    max-width: 700px; /* 메인 컨테이너와 동일한 너비 */
-    background-color: #fff;
-    overflow-x: auto;
-    scrollbar-width: none; /* Firefox */ /* 버튼만 스크롤 가능 */
-    white-space: nowrap;
-    padding: 10px 0;
-    box-shadow: 0px -2px 0px rgba(0, 0, 0, 0.1), /* 상단에만 그림자 */
-    0px -2px 0px rgba(0, 0, 0, 0.0), /* 좌우 하단 그림자 제거 */
-    0px 0px 0px rgba(0, 0, 0, 0.0); /* 추가 그림자 제거 */
-}
 
-.bottom-menu-container::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
-}
-
-.bottom-menu {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 10px;
-    gap: 10px;
-}
-
-/* 메뉴 버튼 스타일 */
-.menu-btn {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* 왼쪽 정렬 */
-
-    background-color: #F1F3F5;
-    border: 0px solid #DEE2E6;
-    border-radius: 12px;
-    font-size: 14px;
-    color: #495057;
-    padding: 15px;
-    min-width: 150px; /* 버튼 크기를 고정하지 않고 최소 너비로 설정 */
-    height: 100px; /* 높이는 좀 더 크게 설정 */
-    text-align: center;
-    white-space: normal; /* 텍스트 줄바꿈 허용 */
-    cursor: pointer;
-    transition: background-color 0.3s;
-
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.menu-btn:hover {
-    background-color: #E9ECEF;
-}
-
-.menu-btn img {
-    width: 24px;
-    height: 24px;
-    margin-bottom: 10px;
-}
-
-.menu-btn p {
-    margin: 0;
-}
-
-/* 푸터를 메인화면으로 가는 버튼으로 설정 */
-.footer {
-    width: 100%;
-    max-width: 700px;
-    padding: 10px;
-    background-color: #E9ECEF;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-}
-
-.footer-btn {
-    background-color: #007BFF;
-    border: none;
-    color: white;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-}
 
 /* 반응형 디자인 */
 @media screen and (max-width: 600px) {
-    .main-container {
-        padding: 10px;
-        margin-bottom: 60px; /* 하단 메뉴와의 간격 유지 */
-    }
-
-    .profile-section {
-        padding: 15px;
-    }
-
-    .profile-header {
-        flex-direction: column;
-        gap: 5px;
-    }
-
+    
     .account-section {
         padding: 20px;
     }
 
     .transaction-section {
         padding: 15px;
-    }
-
-    .name {
-        font-size: 24px;
-    }
-
-    .university {
-        font-size: 14px;
     }
 
     .add-account-btn {
@@ -328,11 +146,5 @@ body {
 
     .transaction-list p {
         font-size: 16px;
-    }
-
-    .menu-btn {
-        min-width: 100px;
-        height: 100px;
-        font-size: 12px;
     }
 }
