@@ -1,61 +1,65 @@
-/* 모바일 화면에 맞는 스타일 */
-@media only screen and (max-width: 600px) {
+/* 화면 너비가 600px 이하일 때만 적용되는 스타일 */
+@media (max-width: 600px) {
+    body {
+        margin: 0;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+        padding-bottom: 60px; /* 버튼 높이만큼 공간 확보 */
+    }
 
-  /* 전체 페이지에 대한 기본 스타일 */
-  body {
-      font-family: Arial, sans-serif;
-      padding: 10px;
-      margin: 0;
-      position: relative;
-      min-height: 100vh;
-  }
+    h1 {
+        text-align: center;
+        font-size: 20px;
+        margin-bottom: 15px;
+        color: #333;
+    }
 
-  /* 제목 스타일 */
-  h1 {
-      font-size: 24px;
-      text-align: center;
-      margin-bottom: 20px;
-  }
+    #receipt-list {
+        max-width: 100%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
 
-  /* 영수증 리스트 스타일 */
-  #receipt-list {
-      margin-bottom: 80px; /* 버튼 영역을 위한 여유 공간 */
-  }
+    .receipt-item {
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 16px;
+        color: #333;
+    }
 
-  /* 개별 영수증 항목 스타일 */
-  .receipt-item {
-      background-color: #f9f9f9;
-      padding: 15px;
-      margin-bottom: 10px;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
+    .receipt-item p {
+        margin: 5px 0;
+    }
 
-  .receipt-item p {
-      margin: 5px 0;
-      font-size: 16px;
-  }
+    /* 더 불러오기 버튼 스타일 (화면 하단에 고정) */
+    #load-more {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        margin-bottom: 25px;
+        text-align: center;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        position: fixed; /* 버튼을 화면 하단에 고정 */
+        bottom: 0;
+        left: 0;
+        width: 50%; /* 버튼을 화면 전체 너비로 설정 */
+        z-index: 1000; /* 다른 요소 위에 표시되도록 설정 */
+        transform: translateX(50%)
+    }
 
-  /* '더 불러오기' 버튼 스타일 */
-  #load-more {
-      display: block;
-      width: 70%; /* 버튼의 가로 크기 */
-      padding: 10px 0;
-      font-size: 18px;
-      background-color: transparent; /* 배경색 제거 */
-      color: black; /* 텍스트 색상 */
-      border: 2px solid black; /* 검정 테두리만 남기기 */
-      border-radius: 8px;
-      text-align: center;
-      cursor: pointer;
-      position: fixed; /* 화면 하단에 고정 */
-      bottom: 20px; /* 하단에서 20px 위에 위치 */
-      left: 50%;
-      transform: translateX(-50%); /* 버튼 중앙 정렬 */
-  }
-
-  /* '더 불러오기' 버튼 클릭 시 스타일 */
-  #load-more:active {
-      background-color: #e0e0e0; /* 클릭 시 배경 회색으로 변경 */
-  }
+    #load-more:hover {
+        background-color: #45a049;
+    }
 }

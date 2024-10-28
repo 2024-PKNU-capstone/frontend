@@ -11,7 +11,7 @@ body {
 h1 {
     text-align: center;
     font-size: 24px;
-    margin-bottom: 200px;
+    margin-bottom: 50px;
 }
 
 .input-group {
@@ -21,17 +21,31 @@ h1 {
 }
 
 .input-group label {
-    margin-right: 0px;
-    font-size: 16px;
+    margin-right: 10px;
+    font-size: 14px;
     flex: 1;
 }
 
-.input-group input {
+.input-group input[type="text"] {
     flex: 3;
     padding: 8px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
+}
+
+/* 역할 선택 그룹 */
+.input-group.role-group {
+    display: flex;
+    flex-wrap: nowrap;  /* 줄바꿈 방지 */
+    gap: 20px;          /* 라디오 버튼 사이 간격 조정 */
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+.input-group.role-group input[type="radio"] {
+    margin-right: 5px;
 }
 
 /* 동의 체크박스 */
