@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>임명하기 페이지</title>
-    <link rel="stylesheet" href="../../CSS/appoint/appoint.css"> <!-- CSS 파일 경로 추가 -->
+    <link rel="stylesheet" href="../../CSS/appoint/appoint.css">
 </head>
 <body>
-    <h1>임명하기</h1>
-    
+    <h1>임명하기</h1> 
     <!-- 이름 입력 그룹 -->
     <div class="input-group">
         <label for="name">이름:</label>
@@ -21,6 +20,15 @@
         <input type="text" id="student-id" name="student-id" required>
     </div>
     
+    <!-- 역할 선택 그룹 -->
+    <div class="input-group">
+        <label for="role">역할 선택:</label><br>
+        <input type="radio" id="vice-president" name="role" value="부회장">
+        <label for="vice-president">부회장</label><br>
+        <input type="radio" id="treasurer" name="role" value="총무">
+        <label for="treasurer">총무</label><br>
+    </div>
+
     <!-- 동의 체크박스 -->
     <label for="consent">
         <input type="checkbox" id="consent"> 동의합니다
@@ -28,13 +36,8 @@
     
     <!-- 위임하기 버튼 -->
     <button id="delegate-btn" disabled>위임하기</button>
-
-    <script>
-        // 체크박스 상태에 따라 버튼 활성화/비활성화 설정
-        document.getElementById('consent').addEventListener('change', function() {
-            const delegateBtn = document.getElementById('delegate-btn');
-            delegateBtn.disabled = !this.checked;  // 체크되면 버튼 활성화, 아니면 비활성화
-        });
-    </script>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../../js/appoint/appoint.js"></script>
 </body>
 </html>
