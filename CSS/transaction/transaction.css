@@ -1,0 +1,191 @@
+/* 헤더 스타일 */
+h2 {
+    margin-bottom: 15px;
+}
+
+.department-info {
+    font-size: 14px;
+    color: #ADB5BD;
+    margin-bottom: 5px;
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #343a40;
+    margin: 5px 0;
+}
+
+.temporary-period {
+    font-size: 16px;
+    color: #868E96;
+    margin-bottom:5px;
+}
+
+/* 장부 리스트 섹션 */
+.transaction-section {
+    background-color: #F1F3F5;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative; /* 새로고침 버튼을 이 영역에 고정 */
+}
+
+.transaction-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #E9ECEF;
+}
+
+.transaction-item:last-child {
+    border-bottom: none;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background-color: #ADB5BD;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.transaction-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.transaction-title {
+    font-size: 16px;
+    color: #495057;
+}
+
+.transaction-date {
+    font-size: 14px;
+    color: #ADB5BD;
+}
+
+.transaction-amount {
+    font-size: 16px;
+    font-weight: bold;
+    color: #343a40;
+}
+
+/* 날짜 선택 섹션 스타일 */
+.date-selection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    gap: 10px;
+}
+
+.date-selection label {
+    font-weight: bold;
+    color: #333;
+}
+
+.date-selection input[type="date"] {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.date-selection button {
+    padding: 8px 15px;
+    background-color: #007BFF; /* 파란색 */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.date-selection button:hover {
+    background-color: #0056b3; /* 더 진한 파란색 */
+}
+
+/* 페이지네이션 버튼 스타일 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 5px;
+}
+
+.pagination .page-btn {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination .page-btn:hover {
+    background-color: #007BFF; /* 파란색 */
+    color: white;
+}
+
+.pagination .active {
+    background-color: #007BFF; /* 파란색 */
+    color: white;
+    border: none;
+}
+
+
+/* 반응형 디자인 */
+@media screen and (max-width: 600px) {
+    h2 {
+        margin-bottom: 0px;
+    }
+    /* 페이지 제목, 거래 제목, 거래 금액 폰트 크기 조정 */
+    .page-title {
+        font-size: 20px;
+    }
+
+    .transaction-title {
+        font-size: 14px;
+    }
+
+    .transaction-amount {
+        font-size: 14px;
+    }
+
+    /* 날짜 선택 섹션 반응형 스타일 */
+    .date-selection {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+
+    .date-selection label {
+        font-size: 14px;
+    }
+
+    .date-selection input[type="date"],
+    .date-selection button {
+        width: 100%;
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    /* 페이지네이션 버튼 반응형 스타일 */
+    .pagination {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .pagination .page-btn {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+}
+
