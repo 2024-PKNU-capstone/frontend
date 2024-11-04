@@ -10,49 +10,17 @@
 <body>
     <div class="main-container">
         <!-- 사용 내역 섹션 -->
-        <div class="usage-section">
-            <!-- 상단 정보 -->
-            <header>
-                <p class="department-info">부경대학교 컴퓨터공학부 장부</p>
-                <div class="date-document">
-                    <h1 class="date">2024.04.06</h1>
-                    <p class="document-number">문서번호 24-04-11</p>
-                </div>
-            </header>
-            <h3>사용목적</h3>
-            <p class="usage-purpose">예시 용도입니다.</p>
-
-            <h3>사용금액</h3>
-            <p class="usage-amount">99,000원</p>
-
-            <h3>상세설명</h3>
-            <p class="usage-descript">예시 용도입니다.</p>
-
-
-            <h3>영수증 상세 내역</h3>
-            <div class="receipt-detail">
-                <p class="receipt-date">2024.04.04</p>
-                <h4 class="receipt-store">민정한우국밥</h4>
-                <hr>
-                <div class="item-detail">
-                    <p>소주</p>
-                    <p>50,000원</p>
-                </div>
-                <div class="item-detail">
-                    <p>한우 몸티기</p>
-                    <p>40,000원</p>
-                </div>
-                <div class="item-detail">
-                    <p>한우 곱밥</p>
-                    <p>9,000원</p>
-                </div>
-            </div>
+        <div class="usage-section" id="account-book-detail">
+            <!-- 동적으로 채워질 영역 -->
         </div>
-        
     </div>
+    
     <!-- 푸터 (메인화면으로 돌아가는 버튼) -->
     <div class="footer">
         <button class="footer-btn" onclick="goToMain()">메인 화면으로 돌아가기</button>
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../../js/ledger/viewLedgerDetail.js"></script> <!-- JS 파일 분리하여 로드 -->
 </body>
 </html>
