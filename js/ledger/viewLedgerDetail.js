@@ -1,7 +1,8 @@
-// URL 파라미터로부터 문서 번호를 가져오는 함수
+// URL 파라미터로부터 문서 번호를 가져오는 함수, 반환값 urlParams (문서번호를 담음)
 function getDocNumFromUrl() {
   const urlParams = new URLSearchParams(window.location.search);
-  return urlParams.get('docNum');  // URL에 있는 문서 번호(docNum)를 가져옴
+  console.log(urlParams.get('id'))
+  return urlParams.get('id');  // URL에 있는 문서 번호(docNum)를 가져옴
 }
 
 // 로컬 스토리지에서 Access Token을 가져옴
@@ -19,12 +20,6 @@ function loadAccountBookDetail(docNum) {
       success: function(response, status, xhr) {
           if (response.code === 200) {
               displayAccountBookDetail(response.data);
-              
-              // 응답 헤더에서 Access-Token 및 Refresh-Token을 콘솔에 출력
-              const newAccessToken = xhr.getResponseHeader("Access-Token");
-              const refreshToken = xhr.getResponseHeader("Refresh-Token");
-              console.log("New Access Token:", newAccessToken);
-              console.log("Refresh Token:", refreshToken);
           }
       },
       error: function(xhr) {
@@ -36,13 +31,35 @@ function loadAccountBookDetail(docNum) {
 // 받은 데이터를 HTML에 표시하는 함수
 function displayAccountBookDetail(data) {
   const detailContainer = $('#account-book-detail');
+  
+  // HTML 목업 구조에 맞춰 동적으로 데이터를 생성 및 삽입
   detailContainer.html(`
-      <h3>${data.title}</h3>
-      <p>금액: ${data.amount}원</p>
-      <p>문서 번호: ${data.docNum}</p>
-      <p>내용: ${data.content}</p>
-      <p>생성일: ${data.createdAt}</p>
-      <p>상태: ${data.status}</p>
+      <!-- 상단 정보 -->
+      <header>
+          <p class="department-info">부경대학교 컴퓨터공학부 장부</p>
+          <div class="date-document">
+              <h1 class="date">${data.createdAt}</h1>
+              <p class="document-number">문서번호 ${data.docNum}</p>
+          </div>
+      </header>
+      
+      <!-- 사용 목적 -->
+      <h3>사용목적</h3>
+      <p class="usage-purpose">${data.purpose || 'N/A'}</p>
+
+      <!-- 사용 금액 -->
+      <h3>사용금액</h3>
+      <p class="usage-amount">${data.amount}원</p>
+
+      <!-- 상세 설명 -->
+      <h3>상세설명</h3>
+      <p class="usage-descript">${data.description || 'N/A'}</p>
+
+      <!-- 영수증 상세 내역 -->
+      <h3>영수증 상세 내역</h3>
+      <div class="receipt-detail">
+          영수증
+      </div>
   `);
 }
 

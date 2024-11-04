@@ -33,6 +33,7 @@ function loadAccountBooks() {
 // 장부 리스트를 화면에 표시하는 함수
 function displayAccountBooks(accountBooks) {
     const listContainer = $('#account-book-list');
+    
     // 각 장부 항목을 반복하며 화면에 추가
     accountBooks.forEach(book => {
         const item = `
@@ -40,7 +41,7 @@ function displayAccountBooks(accountBooks) {
                 <h3>${book.title}</h3>
                 <p>금액: ${book.amount}원</p>
                 <p>문서 번호: ${book.docNum}</p>
-                <button class="detail-btn" onclick="window.location.href='../../pages/ledger/viewLedgerDetail.html'" style="float: right;">
+                <button class="detail-btn" onclick="window.location.href='../../pages/ledger/viewLedgerDetail.html?id=${book.id}'" style="float: right;">
                     상세보기
                 </button>
             </div>
