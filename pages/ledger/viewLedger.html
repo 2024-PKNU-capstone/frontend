@@ -25,33 +25,15 @@
         </div>
 
         <!-- 장부 리스트 섹션 -->
-        <div class="account-book-list">
-            <h2>장부 목록</h2> <!-- 잔액을 제목으로 설정 -->
-            <p class="temporary-period">임시공개기간</p>
-            <div class="transaction-item" onclick="location.href='./viewLedgerDetail.html'">
-                <span class="dot"></span>
-                <div class="transaction-info">
-                    <p class="transaction-title">핑크캠퍼스 비품구입</p>
-                    <p class="transaction-date">2024040411</p>
-                </div>
-                <p class="transaction-amount">-99,000원</p>
-            </div>
-            <!-- 반복 가능한 항목 -->
-            <div class="transaction-item">
-                <span class="dot"></span>
-                <div class="transaction-info">
-                    <p class="transaction-title">핑크캠퍼스 비품구입</p>
-                    <p class="transaction-date">2024040411</p>
-                </div>
-                <p class="transaction-amount">-99,000원</p>
-            </div>
-        </div>
+        <div class="account-book-list" id="account-book-list">
+            
     </div>
         <!-- 푸터 (메인화면으로 돌아가는 버튼) -->
         <div class="footer">
             <button class="footer-btn" onclick="goToMain()">메인 화면으로 돌아가기</button>
         </div>
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../../js/ledger/viewLedger.js"></script>
 </body>
 </html>
 
