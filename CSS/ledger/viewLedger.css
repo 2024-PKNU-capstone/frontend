@@ -1,94 +1,39 @@
-/* 헤더 스타일 */
-h2 {
-    margin-bottom: 15px;
-}
-
-.department-info {
-    font-size: 14px;
-    color: #ADB5BD;
-    margin-bottom: 5px;
-}
-
-.page-title {
-    font-size: 24px;
-    font-weight: bold;
-    color: #343a40;
-    margin: 5px 0;
-}
-
-.temporary-period {
-    font-size: 16px;
-    color: #868E96;
-    margin-bottom:5px;
-}
-
-/* 장부 리스트 섹션 */
-.account-book-list {
-    background-color: #F1F3F5;
-    padding: 20px;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    position: relative; /* 새로고침 버튼을 이 영역에 고정 */
-}
-
-.transaction-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 0;
-    border-bottom: 1px solid #E9ECEF;
-}
-
-.transaction-item:last-child {
-    border-bottom: none;
-}
-
-.dot {
-    width: 8px;
-    height: 8px;
-    background-color: #ADB5BD;
-    border-radius: 50%;
-    margin-right: 10px;
-}
-
-.transaction-info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    margin-left: 10px;
-}
-
-.transaction-title {
-    font-size: 16px;
-    color: #495057;
-}
-
-.transaction-date {
-    font-size: 14px;
-    color: #ADB5BD;
-}
-
-.transaction-amount {
-    font-size: 16px;
-    font-weight: bold;
-    color: #343a40;
-}
-
-
-/* 반응형 디자인 */
+/* 반응형 디자인 - 모바일 화면에서만 적용 */
 @media screen and (max-width: 600px) {
-    .page-title {
-        font-size: 20px;
+    .account-book-item {
+        background-color: white;
+        padding: 10px;
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
     }
 
-    .transaction-title {
+    .account-book-item h3 {
+        font-size: 18px;
+        color: #495057;
+        margin: 0 0 10px 0;
+        font-weight: bold;
+    }
+
+    .account-book-item p {
+        margin: 5px 0;
         font-size: 14px;
+        color: #868E96;
     }
 
-    .transaction-amount {
+    .account-book-item .detail-btn {
         font-size: 14px;
+        color: #FFFFFF;
+        background-color: #868e96;
+        border: none;
+        border-radius: 4px;
+        padding: 8px 12px;
+        cursor: pointer;
+        align-self: flex-end;
+        text-align: center;
     }
 
+    .account-book-item .detail-btn:hover {
+        background-color: #495057;
+    }
 }
