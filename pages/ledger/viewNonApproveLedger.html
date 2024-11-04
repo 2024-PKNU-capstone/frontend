@@ -3,19 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>미등록 장부리스트</title>
+    <title>미등록 장부목록</title>
+    <link rel="stylesheet" href="../../CSS/main.css">
     <link rel="stylesheet" href="../../CSS/ledger/viewnonapproveLedger.css">
 </head>
 <body>
-    <h1>미등록 장부리스트</h1>
+    <!-- 프로필 섹션 -->
+    <div class="profile-section">
+        <div class="profile-left">
+            <p class="university">부경대학교 컴퓨터공학부</p>
+            <p class="name">박기재</p>
+        </div>
+        <div class="role-info">
+            <p class="role">총무</p>
+            <p class="id">201911111</p>
+        </div>
+    </div>
     <div id="unregistered-ledger-list">
         <!-- 미등록 장부 리스트가 여기에 표시됩니다 -->
     </div>
 
-    <!-- 더 불러오기 버튼 -->
-    <button id="load-more">더 불러오기</button>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../../js/ledger/viewNonApproveLedger.js"></script>
 </body>
 </html>
