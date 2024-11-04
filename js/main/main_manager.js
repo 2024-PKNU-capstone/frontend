@@ -324,6 +324,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // 페이지가 로드되면 거래내역을 불러옴
     fetchTransactionList();
     fetchAccountBalance()
+
+    // "See all" 클릭 시 거래내역 페이지로 이동
+    document.getElementById('seeAll').addEventListener('click', function() {
+        window.location.href = '../../pages/transaction/transaction.html'; // transaction.html로 이동
+    });
 });
 
 function fetchAccountBalance() {
@@ -414,3 +419,5 @@ function registerReceipt() {
 function viewNonApproveLedger() {
     window.location.href = '../ledger/viewNonApproveLedger.html';
 }
+
+

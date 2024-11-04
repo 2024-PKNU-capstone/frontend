@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>장부 목록</title>
+    <title>거래내역 목록</title>
     <link rel="stylesheet" href="../../CSS/main.css">
-    <link rel="stylesheet" href="../../CSS/ledger/viewLedger.css">
+    <link rel="stylesheet" href="../../CSS/transaction/transaction.css">
 
 </head>
 <body>
@@ -24,25 +24,27 @@
             </div>
         </div>
 
-        <!-- 장부 리스트 섹션 -->
-        <div class="account-book-list">
-            <h2>장부 승인</h2>
-            <p class="temporary-period">승인대기중</p>
-            <div class="transaction-item" onclick="location.href='./approveLedgerDetail.html'">
-                <span class="dot"></span>
-                <div class="transaction-info">
-                    <p class="transaction-title">핑크캠퍼스 비품구입</p>
-                    <p class="transaction-date">2024040411</p>
-                </div>
-                <p class="transaction-amount">-99,000원</p>
+        <div class="transaction-section" id ="transaction-section">
+            <h2>거래 내역</h2>
+            <!-- 날짜 선택 섹션 -->
+            <div class="date-selection">
+                <label for="fromDate">조회 시작일:</label>
+                <input type="date" id="fromDate">
+                <label for="toDate">조회 종료일:</label>
+                <input type="date" id="toDate">
+                <button id="searchBtn">조회하기</button>
             </div>
+            <div class="transaction-list" id ="transaction-list"></div>
+            <div class="pagination" id="pagination"></div>
         </div>
     </div>
         <!-- 푸터 (메인화면으로 돌아가는 버튼) -->
         <div class="footer">
             <button class="footer-btn" onclick="goToMain()">메인 화면으로 돌아가기</button>
         </div>
-    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../../js/transaction/transaction.js"></script>
 </body>
 </html>
 
