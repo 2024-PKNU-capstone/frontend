@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>거래내역 목록</title>
+    <link rel="stylesheet" href="../../CSS/main.css">
+    <link rel="stylesheet" href="../../CSS/transaction/transaction.css">
+
+</head>
+<body>
+    <div class="main-container">
+        <!-- 프로필 섹션 -->
+        <div class="profile-section">
+            <!-- 왼쪽 대학 정보 및 이름 수직 배열 -->
+            <div class="profile-left">
+                <p class="university">부경대학교 컴퓨터공학부</p> <!-- 대학 정보 -->
+                <p class="name">박기재</p> <!-- 이름 -->
+            </div>
+            <!-- 오른쪽 역할 및 학번 수평 배열 -->
+            <div class="role-info">
+                <p class="role">총무</p> <!-- 역할 -->
+                <p class="id">201911111</p> <!-- 학번 -->
+            </div>
+        </div>
+
+        <div class="transaction-section" id ="transaction-section">
+            <h2>거래 내역</h2>
+            <!-- 날짜 선택 섹션 -->
+            <div class="date-selection">
+                <label for="fromDate">조회 시작일:</label>
+                <input type="date" id="fromDate">
+                <label for="toDate">조회 종료일:</label>
+                <input type="date" id="toDate">
+                <button id="searchBtn">조회하기</button>
+            </div>
+            <div class="transaction-list" id ="transaction-list"></div>
+            <div class="pagination" id="pagination"></div>
+        </div>
+    </div>
+        <!-- 푸터 (메인화면으로 돌아가는 버튼) -->
+        <div class="footer">
+            <button class="footer-btn" onclick="goToMain()">메인 화면으로 돌아가기</button>
+        </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../../js/transaction/transaction.js"></script>
+</body>
+</html>
+
