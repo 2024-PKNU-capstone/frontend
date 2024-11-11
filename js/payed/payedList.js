@@ -12,7 +12,7 @@ $(document).ready(function() {
       },
       success: function(response) { 
         if (response.code === 200) { 
-          displayPayers(response.body); // .data
+          displayPayers(response.data);
         }
       },
       error: function(xhr) { 

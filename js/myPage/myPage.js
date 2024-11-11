@@ -37,3 +37,19 @@ function displayUserProfile(user) {
   $('#roles').text(user["roles"]);
   $('#is-payed').text(user["isPayed"]);
 }
+
+function logout() {
+    if (confirm('로그아웃 하시겠습니까?')) { // 확인 취소
+        alert("로그아웃 되었습니다.");
+    } else {
+        alert("로그아웃이 취소되었습니다.");
+    }
+}
+
+function deleteID() {
+    if (confirm('회원탈퇴 하시겠습니까?')) {
+        alert("회원탈퇴가 완료되었습니다.");
+    } else {
+        alert("회원탈퇴가 취소되었습니다.");
+    }
+}
