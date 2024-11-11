@@ -12,7 +12,7 @@ $(document).ready(function() {
       },
       success: function(response) { 
         if (response.code === 200) { 
-          displayPayers(response.data); // data.content?
+          displayPayers(response.body); // .data
         }
       },
       error: function(xhr) { 
@@ -28,9 +28,9 @@ $(document).ready(function() {
     payers.forEach(payer => { 
       const item = `
         <div class="payer-item">
-          <h2>${payer.contributorName}</h2>
-          <p>납부 금액: ${payer.amount}</p>
-          <p>납부 날짜: ${payer.paymentDate}</p>
+          <h2>${payer.name}</h2>
+          <p>납부 번호: ${payer.number}</p>
+          <p>납부 날짜: ${payer.payedDate}</p>
         </div>
       `;
       listContainer.append(item);
