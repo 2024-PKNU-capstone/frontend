@@ -58,8 +58,9 @@ function displayAccountBookDetail(data) {
       <!-- 영수증 상세 내역 -->
       <h3>영수증 상세 내역</h3>
       <div class="receipt-detail">
-          영수증
+          영수증 // 나중에 이미지로?
       </div>
+      <br><br>
   `);
 }
 

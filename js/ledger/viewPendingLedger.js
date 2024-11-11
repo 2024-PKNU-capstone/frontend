@@ -1,19 +1,23 @@
+// 로컬 스토리지에서 Access Token을 가져옴
+const token = localStorage.getItem('accessToken');
+const accessToken = `Bearer ${token}`;
+
 // 초기 페이지 번호 설정
 let currentPage = 1;
 
 // 장부 리스트를 서버에서 불러오는 함수
 function loadAccountBooks() {
     $.ajax({
-        url: '/api/pending-account-books',  // api명세서 url -> 나중에 확인해야함
+        url: 'http://localhost:8080/api/?', // 나중에 수정
         type: 'GET',
         headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer {JWT_TOKEN}"  // 실제 JWT 토큰을 설정해야함
+            "Authorization": accessToken
         },
-        data: JSON.stringify({
-            status: "UNAUDITED", // 미감사 장부조회
+        data: {
+            status: "PUBLIC", // 미감사 장부 조회
             page: currentPage
-        }),
+        },
         success: function(response) {
             if (response.code === 200) {
                 displayAccountBooks(response.data.accountBooks);
@@ -33,10 +37,13 @@ function displayAccountBooks(accountBooks) {
     // 각 장부 항목을 반복하며 화면에 추가
     accountBooks.forEach(book => {
         const item = `
-            <div class="account-book-item">
-                <h3>${book.title}</h3>
-                <p>금액: ${book.amount}원</p>
-                <p>문서 번호: ${book.docNum}</p>
+            <div class="transaction-item" onclick="location.href='./approveLedgerDetail.html?docNum=${book.docNum}'">
+                <span class="dot"></span>
+                <div class="transaction-info">
+                    <p class="transaction-title">${book.title}</p>
+                    <p class="transaction-date">${book.date}</p>
+                </div>
+                <p class="transaction-amount">${book.amount}원</p>
             </div>
             <hr>
         `;
