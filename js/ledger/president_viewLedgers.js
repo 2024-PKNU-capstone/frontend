@@ -160,3 +160,5 @@ $(document).ready(function() {
         }
     });
 });
+
+window.navigateToDetail=navigateToDetail;

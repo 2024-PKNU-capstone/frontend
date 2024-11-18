@@ -80,8 +80,9 @@
                 <p class="id">201911111</p>
             </div>
         </div>
+
         <div class="account-book-section">
-            <h2>미등록 장부</h2>
+            <h2>장부 목록</h2>
                 <div class="date-selection">
                     <div class ="date-label-date">
                         <label for="public-from-date">조회 시작일:</label>
@@ -91,7 +92,7 @@
                         <label for="public-to-date">조회 종료일:</label>
                         <input type="date" id="public-to-date" class="to-date">
                     </div>
-                    <button>조회</button>
+                    <button onclick="handleSearch('public', 'PUBLIC', 'public-from-date', 'public-to-date', 'public-account-book-list')">조회</button>
                 </div>
                 <div class="account-book-list" id="public-account-book-list"></div>
         </div>
@@ -116,6 +117,7 @@
         </button>
     </div>
     <script type="module"  src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="module"  src="../../../js/ledger/manager_viewLedger.js"></script>
     <script type="module"  src="../../../js/main/main_info.js"></script>
 </body>
 </html>

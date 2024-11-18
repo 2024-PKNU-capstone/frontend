@@ -69,7 +69,7 @@ function loadAccountBooks(status, targetListId, fromDate, toDate) {
         },
         success: function(response) {
             if (response.code === 200) {
-                displayAccountBooks(response.data.content, targetListId);
+                displayAccountBooks(response.data.content, targetListId,status);
                 currentPage++; // 다음 페이지 번호로 업데이트
             }
         },
@@ -80,7 +80,7 @@ function loadAccountBooks(status, targetListId, fromDate, toDate) {
 }
 
 // 장부 리스트를 화면에 표시하는 함수
-function displayAccountBooks(accountBooks, targetListId) {
+function displayAccountBooks(accountBooks, targetListId,status) {
     const listContainer = $(`#${targetListId}`);
     listContainer.empty(); // 기존 리스트 초기화
 
@@ -92,7 +92,7 @@ function displayAccountBooks(accountBooks, targetListId) {
     // 각 장부 항목을 반복하며 화면에 추가
     accountBooks.forEach(book => {
         const item = `
-            <div class="account-book-item">
+            <div class="account-book-item" onclick="navigateToDetail('${book.id}', '${status}')">
                 <span class="dot"></span>
                 <div class="account-book-info">
                     <p class="account-book-title">${book.title}</p>
@@ -103,6 +103,13 @@ function displayAccountBooks(accountBooks, targetListId) {
         `;
         listContainer.append(item);
     });
+}
+
+// 장부 상세보기 페이지로 이동하는 함수
+function navigateToDetail(accountBookId, status) {
+    console.log(status)
+    const detailPage = status === 'PENDING' ? 'approveLedgerDetail.html' : 'viewLedgerDetail.html';
+    window.location.href = `../../ledger/${detailPage}?id=${accountBookId}`;
 }
 
 // 페이지 로드 시 첫 번째 요청 실행
@@ -136,3 +143,6 @@ $(document).ready(function() {
         }
     });
 });
+
+window.handleSearch=handleSearch;
+window.navigateToDetail=navigateToDetail;

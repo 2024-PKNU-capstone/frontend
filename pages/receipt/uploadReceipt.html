@@ -4,28 +4,68 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>영수증 등록</title>
+  <link rel="stylesheet" href="../../CSS/main.css">
   <!-- 외부 CSS 파일 링크 -->
   <link rel="stylesheet" href="../../CSS/receipt/uploadReceipt.css">
   <!-- jQuery 라이브러리 추가 -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-  <!-- 이미지 미리보기 영역 -->
-  <div class="preview-container">
-    <!-- 이미지 미리보기를 위한 <img> 요소로, 선택한 이미지가 여기에 표시됨 -->
-    <img id="preview" alt="Preview Image" style="display: none;">
-  </div>
+  <!-- 헤더 시작 -->
+  <div class="app-header-background"></div>
+  <header class="app-header">
+      <!-- 뒤로가기 버튼 -->
+      <button class="icon-button" onclick="history.back()">
+          <img class="back" src="../../resource/icons/icons8-뒤로-24.png" width="30px" alt="Back"> <!-- back icon path -->
+      </button>
 
-  <!-- 버튼 컨테이너 영역 -->
-  <div class="button-container">
-    <!-- 카메라 버튼: 클릭 시 파일 입력 필드를 호출하여 카메라를 염 -->
-    <button class="camera-button" onclick="document.getElementById('cameraInput').click();">
-      카메라
-    </button>
-    <!-- 등록 버튼: 클릭 시 파일을 업로드하는 함수 호출 -->
-    <button class="upload-button" onclick="uploadReceipt()">
-      등록하기
-    </button>
+      <!-- 중앙 로고 -->
+      <div class="logo">
+          <img src="../../resource/icons/장부로고(화이트).png" alt="봉장부 로고"> <!-- logo path -->
+      </div>
+
+      <!-- 메뉴 버튼 -->
+      <button class="icon-button">
+          <img class ="menu" src="../../resource/icons/icons8-햄버거-24.png" width="30px" alt="Menu"> <!-- menu icon path -->
+      </button>
+  </header>
+
+  <div class="main-container">
+      <!-- 프로필 섹션 -->
+      <div class="profile-section">
+          <!-- 왼쪽 대학 정보 및 이름 수직 배열 -->
+          <div class="profile-left">
+              <p class="university">로딩중</p> <!-- 대학 정보 -->
+              <p class="name"></p> <!-- 이름 -->
+          </div>
+          <!-- 오른쪽 역할 및 학번 수평 배열 -->
+          <div class="role-info">
+              <p class="role"></p> <!-- 역할 -->
+              <p class="id"></p> <!-- 학번 -->
+          </div>
+      </div>
+      <div class="upload-section">
+        <h3>영수증 업로드</h3>
+        <p class="upload-instruction">
+            💡 정확한 OCR 처리를 위해 필요한 영역이 잘 보이도록 촬영해주세요.
+        </p>
+        
+        <!-- 이미지 미리보기 영역 -->
+        <div class="preview-container" onclick="document.getElementById('cameraInput').click();">
+          <!-- 이미지 미리보기를 위한 <img> 요소로, 선택한 이미지가 여기에 표시됨 -->
+          <img id="preview" alt="Preview Image" style="display: none;">
+          <!-- '+' 아이콘 -->
+          <div id="add-icon" class="add-icon">+</div>
+      </div>
+
+      <!-- 등록 버튼 -->
+      <div class="button-container">
+          <button class="upload-button" onclick="uploadReceipt()">등록하기</button>
+      </div>
+
+      <!-- 파일 입력 필드 -->
+      <input type="file" id="cameraInput" accept="image/*" capture="environment" style="display:none" onchange="showPreview(event)">
+    </div>    
   </div>
 
   <!-- 파일 입력 필드 (카메라 사용 포함) -->
@@ -38,19 +78,25 @@
   -->
 
   <script>
-    // 이미지 미리보기 함수 정의
     function showPreview(event) {
-      const file = event.target.files[0]; // 선택된 첫 번째 파일 객체
-      if (file) {
-        const reader = new FileReader(); // FileReader 객체 생성
-        reader.onload = function(e) { // 파일 로드 완료 후 실행할 함수 정의
-          const preview = document.getElementById("preview"); // 미리보기 <img> 요소 선택
-          preview.src = e.target.result; // 이미지 데이터를 <img> 요소의 src에 할당하여 표시
-          preview.style.display = "block"; // 미리보기 이미지 표시
-        };
-        reader.readAsDataURL(file); // 파일을 Data URL로 읽어 이미지 데이터를 얻음
-      }
+        const file = event.target.files[0]; // 선택된 파일
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const preview = document.getElementById("preview");
+                const addIcon = document.getElementById("add-icon");
+
+                preview.src = e.target.result; // 이미지 소스 설정
+                preview.style.display = "block"; // 미리보기 이미지 표시
+                addIcon.style.display = "none"; // '+' 아이콘 숨김
+            };
+            reader.readAsDataURL(file); // 파일을 Base64로 변환하여 읽음
+        } else {
+            alert("파일을 선택하지 않았습니다.");
+        }
     }
+
+
 
     function uploadReceipt() {
     const fileInput = document.getElementById('cameraInput'); // 파일 입력 필드 선택
@@ -88,11 +134,9 @@
 
       // 요청 성공 시 실행되는 콜백 함수
       success: function (response, status, xhr) {
-        if (xhr.status === 201) { // HTTP 상태 코드 201(Created)일 경우
+        console.log(response)
+        if (response.code === 201) { // HTTP 상태 코드 201(Created)일 경우
           alert("영수증 업로드 성공: " + response.message); // 성공 메시지 표시
-          // 서버가 응답 헤더에 포함한 새 Access-Token 및 Refresh-Token을 콘솔에 출력
-          console.log("Access-Token:", xhr.getResponseHeader("Access-Token"));
-          console.log("Refresh-Token:", xhr.getResponseHeader("Refresh-Token"));
         }
       },
 
@@ -102,6 +146,8 @@
       }
   });
 }
-  </script>
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="module"  src="../../js/main/main_info.js"></script>
 </body>
 </html>

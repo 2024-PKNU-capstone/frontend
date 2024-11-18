@@ -31,13 +31,13 @@
         <div class="profile-section">
             <!-- 왼쪽 대학 정보 및 이름 수직 배열 -->
             <div class="profile-left">
-                <p class="university">부경대학교 정보융합대학</p> <!-- 대학 정보 -->
-                <p class="name">강지원</p> <!-- 이름 -->
+                <p class="university">로딩중</p> <!-- 대학 정보 -->
+                <p class="name"></p> <!-- 이름 -->
             </div>
             <!-- 오른쪽 역할 및 학번 수평 배열 -->
             <div class="role-info">
-                <p class="role">감사</p> <!-- 역할 -->
-                <p class="id">201911111</p> <!-- 학번 -->
+                <p class="role"></p> <!-- 역할 -->
+                <p class="id"></p> <!-- 학번 -->
             </div>
         </div>
         
@@ -50,9 +50,23 @@
         </div>
     </div>
     
-    <!-- 푸터 (메인화면으로 돌아가는 버튼) -->
     <div class="footer">
-        <button class="footer-btn" onclick="goToMain()">메인 화면으로 돌아가기</button>
+        <button class="footer-btn" id="home-btn">
+            <i class="fas fa-home"></i> <!-- 홈 아이콘 -->
+            <span>홈</span>
+        </button>
+        <button class="footer-btn" id="ledger-btn">
+            <i class="fas fa-book"></i> <!-- 장부보기 아이콘 -->
+            <span>장부</span>
+        </button>
+        <button class="footer-btn" id="identifier-btn">
+            <i class="fas fa-id-card"></i> <!-- 납부자 식별 아이콘 -->
+            <span>납부자</span>
+        </button>
+        <button class="footer-btn" id="mypage-btn">
+            <i class="fas fa-user"></i> <!-- 마이페이지 아이콘 -->
+            <span>마이</span>
+        </button>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
