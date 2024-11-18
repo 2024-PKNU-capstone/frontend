@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>영수증 보기</title>
-    <link rel="stylesheet" href="../../CSS/receipt/viewReceipt.css"> <!-- CSS 파일 경로 추가 -->
+    <title>영수증 조회</title>
+    <link rel="stylesheet" href="../../CSS/receipt/viewReceipt.css">
 </head>
 <body>
-    <h1>영수증 리스트</h1>
-    <div id="receipt-list">
-        <!-- 영수증 리스트가 여기에 표시됩니다 -->
-    </div>
-
-    <!-- 더 불러오기 버튼 -->
-    <button id="load-more">더 불러오기</button>
-    <script src="../../js/receipt/viewReceipt.js"></script>
+    <header>
+        <h1>영수증 조회</h1>
+    </header>
+    <section id="receipt-info">
+        <div id="receipt-list"></div>
+    </section>
+    <div id="error-message"></div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="module"  src="../../js/receipt/viewReceipt.js"></script>
 </body>
 </html>

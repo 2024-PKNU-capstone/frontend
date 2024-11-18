@@ -1,10 +1,11 @@
+import { API_BASE_URL} from '../../config.js';
 const token = localStorage.getItem('accessToken');
 const accessToken = `Bearer ${token}`;
 
 $(document).ready(function() { 
   function loadPayerList() {
     $.ajax({
-      url: 'http://localhost:8080/api/users/payed',
+      url: `${API_BASE_URL}/api/users/payed`,
       type: 'GET',
       headers: {
         "Content-Type": "application/json",
@@ -12,7 +13,7 @@ $(document).ready(function() {
       },
       success: function(response) { 
         if (response.code === 200) { 
-          displayPayers(response.data); // data.content?
+          displayPayers(response.data);
         }
       },
       error: function(xhr) { 
@@ -28,9 +29,9 @@ $(document).ready(function() {
     payers.forEach(payer => { 
       const item = `
         <div class="payer-item">
-          <h2>${payer.contributorName}</h2>
-          <p>납부 금액: ${payer.amount}</p>
-          <p>납부 날짜: ${payer.paymentDate}</p>
+          <h2>${payer.name}</h2>
+          <p>납부 번호: ${payer.number}</p>
+          <p>납부 날짜: ${payer.payedDate}</p>
         </div>
       `;
       listContainer.append(item);

@@ -1,3 +1,4 @@
+import { API_BASE_URL} from '../../config.js';
 // URL 파라미터로부터 문서 번호를 가져오는 함수, 반환값 urlParams (문서번호를 담음)
 function getDocNumFromUrl() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -12,7 +13,7 @@ const accessToken = `Bearer ${token}`;
 // 장부 상세 정보를 불러오는 함수
 function loadAccountBookDetail(docNum) {
   $.ajax({
-      url: `http://localhost:8080/api/account-books/${docNum}`,  // 상세보기 API 엔드포인트
+      url: `${API_BASE_URL}/api/account-books/${docNum}`,  // 상세보기 API 엔드포인트
       type: 'GET',
       headers: {
           "Authorization": accessToken
@@ -62,8 +63,9 @@ function displayAccountBookDetail(data) {
       <!-- 영수증 상세 내역 -->
       <h3>영수증 상세 내역</h3>
       <div class="receipt-detail">
-          영수증
+          영수증 // 나중에 이미지로?
       </div>
+      <br><br>
   `);
 }
 

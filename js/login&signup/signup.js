@@ -1,3 +1,4 @@
+import { API_BASE_URL} from '../../config.js';
 document.addEventListener('DOMContentLoaded', function() {
     // URL에서 query parameters 추출
     const urlParams = new URLSearchParams(window.location.search);
@@ -40,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         // 서버로 POST 요청
-        fetch(`http://localhost:8080/api/univ/register/${role}?parentId=${parentId}`, {
+        fetch(`${API_BASE_URL}/api/univ/register/${role}?parentId=${parentId}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

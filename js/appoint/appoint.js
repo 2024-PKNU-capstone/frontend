@@ -1,3 +1,4 @@
+import { API_BASE_URL} from '../../config.js';
 // DOM 요소 가져오기
 const nameInput = document.getElementById('name'); // 이름
 const studentIdInput = document.getElementById('student-id'); // 학번
@@ -48,7 +49,7 @@ $(document).ready(function() { // ready를 통해 DOM이 완전 준비되면 js�
 
       // AJAX 요청
       $.ajax({
-          url: 'http://localhost:8080/api/users/appoint',  // API 엔드포인트 URL? -> 맞는지 체크해야됨
+          url: `${API_BASE_URL}/api/users/appoint`,  // API 엔드포인트 URL? -> 맞는지 체크해야됨
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',

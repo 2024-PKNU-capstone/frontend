@@ -1,10 +1,11 @@
+import { API_BASE_URL} from '../../config.js';
 $(document).ready(function () {
     const accessToken = `Bearer ${token}`;
 
     // 미등록 장부 리스트를 불러오는 함수
     function loadUnregisteredLedgers() {
         $.ajax({
-            url: 'http://localhost:8080/api/account-books/approve',
+            url: `${API_BASE_URL}/api/account-books/approve`,
             method: "GET",
             headers: {
                 "Content-Type": "application/json",

@@ -1,8 +1,10 @@
+import { API_BASE_URL} from '../../config.js';
+
 function login() {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
-    fetch('http://localhost:8080/api/auth/login', {
+    fetch(`${API_BASE_URL}/api/auth/login`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -26,7 +28,7 @@ function login() {
             alert('로그인 성공 ' + accessToken);
 
             // 메인 페이지 URL 요청
-            return fetch('http://localhost:8080/api/role/main', {
+            return fetch(`${API_BASE_URL}/api/role/main`, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${accessToken}`, // 인증 토큰을 헤더에 추가
@@ -57,3 +59,6 @@ function login() {
         alert('오류가 발생했습니다. ' + error.message);
     });
 }
+
+// window 객체에 함수 등록
+window.login = login;

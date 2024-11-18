@@ -1,3 +1,4 @@
+import { API_BASE_URL} from '../../config.js';
 // 초기 페이지 번호 및 페이지 크기 설정
 let currentPage = 1;
 const token = localStorage.getItem('accessToken');
@@ -54,7 +55,7 @@ function formatDateForRequest(date) {
 // 각 탭에 대한 장부 리스트를 서버에서 불러오는 함수
 function loadAccountBooks(status, targetListId, fromDate, toDate) {
     $.ajax({
-        url: 'http://localhost:8080/api/account-books',
+        url: `${API_BASE_URL}/api/account-books`,
         type: 'GET',
         headers: {
             "Content-Type": "application/json",

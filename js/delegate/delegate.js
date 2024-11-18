@@ -1,3 +1,4 @@
+import { API_BASE_URL} from '../../config.js';
  // 체크박스 상태에 따라 버튼 활성화/비활성화 설정
 document.getElementById('consent').addEventListener('change', function() {
   const delegateBtn = document.getElementById('delegate-btn');
@@ -19,7 +20,7 @@ $(document).ready(function() {
 
       // AJAX 요청
       $.ajax({
-          url: '/api/users/delegate',  // API 엔드포인트 URL -> 나중에 확인해야함
+          url: `${API_BASE_URL}/api/users/delegate`,  // API 엔드포인트 URL -> 나중에 확인해야함
           method: 'PATCH',
           headers: {
               'Content-Type': 'application/json',
