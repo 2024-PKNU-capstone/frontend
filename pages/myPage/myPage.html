@@ -4,30 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>마이페이지</title>
+    <link rel="stylesheet" href="../../CSS/main.css">
     <link rel="stylesheet" href="../../CSS/myPage/myPage.css">
 </head>
 <body>
-    <header>
-        <h1>마이페이지</h1>
+    <!-- 헤더 시작 -->
+    <div class="app-header-background"></div>
+    <header class="app-header">
+        <!-- 뒤로가기 버튼 -->
+        <button class="icon-button" onclick="history.back()">
+            <img class="back" src="../../resource/icons/icons8-뒤로-24.png" width="30px" alt="Back"> <!-- back icon path -->
+        </button>
+
+        <!-- 중앙 로고 -->
+        <div class="logo">
+            <img src="../../resource/icons/장부로고(화이트).png" alt="봉장부 로고"> <!-- logo path -->
+        </div>
+
+        <!-- 메뉴 버튼 -->
+        <button class="icon-button">
+            <img class ="menu" src="../../resource/icons/icons8-햄버거-24.png" width="30px" alt="Menu"> <!-- menu icon path -->
+        </button>
     </header>
-    <section id="user-info">
-        <p>대학 ID: <span id="university-id"></span></p>
-        <p>학과 ID: <span id="department-id"></span></p>
-        <p>이름: <span id="user-name"></span></p>
-        <p>로그인 ID: <span id="login-id"></span></p>
-        <p>학번: <span id="student-number"></span></p>
-        <p>역할: <span id="roles"></span></p>
-        <p>회비 납부 여부: <span id="is-payed"></span></p>
-    </section>
-    <div id="error-message"></div>
+
+    <div class="main-container">
+        <!-- 프로필 섹션 -->
+        <div class="profile-section">
+            <!-- 왼쪽 대학 정보 및 이름 수직 배열 -->
+            <div class="profile-left">
+                <p class="university">로딩중</p> <!-- 대학 정보 -->
+                <p class="name"></p> <!-- 이름 -->
+            </div>
+            <!-- 오른쪽 역할 및 학번 수평 배열 -->
+            <div class="role-info">
+                <p class="role"></p> <!-- 역할 -->
+                <p class="id"></p> <!-- 학번 -->
+            </div>
+        </div>
+        <section class="mypage-section" id="user-info">
+            <div class="mypage-buttons" id="action-buttons">
+                <button id="logout-btn" onclick="logout()">로그아웃</button>
+                <button id="delete-account-btn" onclick="deleteID()">회원탈퇴</button>
+            </div>
+        </section>
     
-    <!-- 로그아웃 및 회원탈퇴 버튼 추가 -->
-    <div id="action-buttons">
-        <button id="logout-btn" onclick="logout()">로그아웃</button>
-        <button id="delete-account-btn" onclick="deleteID()">회원탈퇴</button>
+        
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="module"  src="../../js/myPage/myPage.js"></script>
+    <script type="module"  src="../../js/main/main_info.js"></script>
 </body>
 </html>

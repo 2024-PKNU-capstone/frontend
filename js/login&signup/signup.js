@@ -1,16 +1,22 @@
-import { API_BASE_URL} from '../../config.js';
-document.addEventListener('DOMContentLoaded', function() {
+import { API_BASE_URL } from '../../config.js';
+
+document.addEventListener('DOMContentLoaded', function () {
     // URL에서 query parameters 추출
     const urlParams = new URLSearchParams(window.location.search);
     const collegeId = urlParams.get('collegeId');
     const deptId = urlParams.get('deptId');
-    const role = urlParams.get('role');
+    let role = urlParams.get('role');
+
+    // role이 없으면 기본값으로 AUDITOR 설정
+    if (!role) {
+        role = 'AUDITOR';
+    }
 
     // parentId 설정: collegeId가 있으면 그것을 사용하고, 없으면 deptId를 사용
     const parentId = collegeId ? collegeId : deptId;
 
     // 회원가입 버튼 클릭 이벤트
-    document.querySelector('.signup-btn').addEventListener('click', function(event) {
+    document.querySelector('.signup-btn').addEventListener('click', function (event) {
         event.preventDefault(); // 기본 제출 이벤트 방지
 
         // 폼 데이터 수집
@@ -41,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         // 서버로 POST 요청
-        fetch(`${API_BASE_URL}/api/univ/register/${role}?parentId=${parentId}`, {
+        fetch(`${API_BASE_URL}/api/univ/register/${role}?parentId=${parentId || ''}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -52,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             if (data.code === 200) {
                 alert(data.message); // 가입 완료 메시지
-                window.location.href = '/login'; // 회원가입 후 로그인 페이지로 이동 (필요 시 URL 수정)
+                window.location.href = './login.html'; // 회원가입 후 로그인 페이지로 이동 (필요 시 URL 수정)
             } else {
                 alert('가입 중 오류가 발생했습니다.');
             }
