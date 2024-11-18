@@ -14,7 +14,6 @@ function loadReceipts() {
             "Authorization": accessToken
         },
         data: {
-            dept_id: 1, // 필수 값으로 설정된 학과 아이디??
             page: 1,    // 기본 페이지??
             from_date: "2024-01-01",
             to_date: "2025-12-31"

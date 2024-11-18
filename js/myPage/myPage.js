@@ -41,6 +41,7 @@ function displayUserProfile(user) {
 function logout() {
     if (confirm('로그아웃 하시겠습니까?')) { // 확인 취소
         alert("로그아웃 되었습니다.");
+        // ajax 로직 추가해야함
     } else {
         alert("로그아웃이 취소되었습니다.");
     }
