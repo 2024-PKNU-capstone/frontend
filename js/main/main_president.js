@@ -1,3 +1,4 @@
+import { API_BASE_URL} from '../../config.js';
 document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('signupModal');
     const openModalBtn = document.getElementById('openModalBtn');
@@ -17,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
         copyLinkBtn.style.display = 'none'; // 복사 버튼 숨기기
 
         // 서버에 GET 요청
-        fetch('http://54.180.138.130:8080/api/univ/signup-link', {
+        fetch(`${API_BASE_URL}/api/univ/signup-link`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -65,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const token = localStorage.getItem('accessToken'); // 필요한 경우 로컬스토리지에서 토큰을 불러옴
         const accessToken = `Bearer ${token}`;
 
-        fetch('http://localhost:8080/api/transaction/latest', {
+        fetch(`${API_BASE_URL}/api/transaction/latest`, {
             method: 'GET',
             headers: {
                 'Authorization': accessToken
@@ -140,7 +141,7 @@ function fetchAccountBalance() {
     const token = localStorage.getItem('accessToken'); // 로컬스토리지에서 토큰을 불러옴
     const accessToken = `Bearer ${token}`;
 
-    fetch('http://localhost:8080/api/transaction/balance', {
+    fetch(`${API_BASE_URL}/api/transaction/balance`, {
         method: 'GET',
         headers: {
             'Authorization': accessToken

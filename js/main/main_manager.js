@@ -1,3 +1,5 @@
+import { API_BASE_URL} from '../../config.js';
+
 document.addEventListener('DOMContentLoaded', function() {
     const checkAccountBtn = document.getElementById('add-account-btn');
     saveTokenToLocalStorage();
@@ -19,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const accessToken = `Bearer ${token}`;
         console.log("Authorization header:", accessToken);
 
-        fetch('http://54.180.138.130:8080/api/oauth/open-bank', {
+        fetch(`${API_BASE_URL}/api/oauth/open-bank`, {
             method: 'GET',
             headers: {
                 'Authorization': accessToken
@@ -68,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const token = localStorage.getItem('accessToken');
         const accessToken = `Bearer ${token}`;
 
-        fetch('http://localhost:8080/api/oauth/transactions', {
+        fetch(`${API_BASE_URL}/api/oauth/transactions`, {
             method: 'GET',
             headers: {
                 'Authorization': accessToken
@@ -92,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const token = localStorage.getItem('accessToken');
         const accessToken = `Bearer ${token}`;
 
-        fetch('http://localhost:8080/api/oauth/is-verified', {
+        fetch(`${API_BASE_URL}/api/oauth/is-verified`, {
             method: 'GET',
             headers: {
                 'Authorization': accessToken
@@ -156,7 +158,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 서버에 계좌 목록 요청을 보내는 함수
     function fetchAccountList(accessToken) {
         console.log(accessToken)
-        fetch('http://localhost:8080/api/oauth/account-list', {
+        fetch(`${API_BASE_URL}/api/oauth/account-list`, {
             method: 'GET',
             headers: {
                 'Authorization': accessToken
@@ -221,7 +223,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         const accessToken = `Bearer ${token}`;
-        fetch('http://localhost:8080/api/account/register?fintech_use_num='+fintechUseNum, {
+        fetch(`${API_BASE_URL}/api/account/register?fintech_use_num=`+fintechUseNum, {
             method: 'POST',
             headers: {
                 'Authorization': accessToken,
@@ -254,7 +256,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const token = localStorage.getItem('accessToken'); // 필요한 경우 로컬스토리지에서 토큰을 불러옴
         const accessToken = `Bearer ${token}`;
 
-        fetch('http://localhost:8080/api/transaction/latest', {
+        fetch(`${API_BASE_URL}/api/transaction/latest`, {
             method: 'GET',
             headers: {
                 'Authorization': accessToken
@@ -334,7 +336,7 @@ function fetchAccountBalance() {
     const token = localStorage.getItem('accessToken'); // 로컬스토리지에서 토큰을 불러옴
     const accessToken = `Bearer ${token}`;
 
-    fetch('http://localhost:8080/api/transaction/balance', {
+    fetch(`${API_BASE_URL}/api/transaction/balance`, {
         method: 'GET',
         headers: {
             'Authorization': accessToken

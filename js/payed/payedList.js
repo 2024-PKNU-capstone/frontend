@@ -1,10 +1,11 @@
+import { API_BASE_URL} from '../../config.js';
 const token = localStorage.getItem('accessToken');
 const accessToken = `Bearer ${token}`;
 
 $(document).ready(function() { 
   function loadPayerList() {
     $.ajax({
-      url: 'http://54.180.138.130:8080/api/users/payed',
+      url: `${API_BASE_URL}/api/users/payed`,
       type: 'GET',
       headers: {
         "Content-Type": "application/json",

@@ -1,3 +1,5 @@
+import { API_BASE_URL} from '../../config.js';
+
 // URL에서 id 파라미터 가져오는 함수
 function getAccountBookIdFromUrl() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -21,7 +23,7 @@ $(document).ready(function () {
 // 승인 및 반려 요청 함수
 function sendApprovalRequest(accountBookId, approval) {
     $.ajax({
-      url: `http://54.180.138.130:8080/api/account-books/approve/${accountBookId}?approval=${approval}`, // approval을 URL 파라미터로 전달
+      url: `${API_BASE_URL}/api/account-books/approve/${accountBookId}?approval=${approval}`, // approval을 URL 파라미터로 전달
       type: 'POST',
       headers: {
         "Content-Type": "application/json",

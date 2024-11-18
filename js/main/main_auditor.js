@@ -1,3 +1,5 @@
+import { API_BASE_URL} from '../../config.js';
+
 document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('signupModal');
     const openModalBtn = document.getElementById('openModalBtn');
@@ -12,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
         copyLinkBtn.style.display = 'none'; // 복사 버튼 숨기기
 
         // 서버에 GET 요청
-        fetch('http://54.180.138.130:8080/api/univ/signup-link', {
+        fetch(`${API_BASE_URL}/api/univ/signup-link`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

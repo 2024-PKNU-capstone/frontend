@@ -1,3 +1,4 @@
+import { API_BASE_URL} from '../../config.js';
 document.addEventListener('DOMContentLoaded', function () {
     let currentPage = 0;
     let totalPages = Infinity; // 초기에는 무한대로 설정
@@ -14,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 거래내역을 업데이트하는 함수
     function fetchTransactions() {
-        fetch('http://54.180.138.130:8080/api/oauth/transactions', {
+        fetch(`${API_BASE_URL}/api/oauth/transactions`, {
             method: 'GET',
             headers: {
                 'Authorization': accessToken
@@ -58,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 거래내역을 업데이트하는 함수
     function fetchTransactionList(page, fromDate, toDate) {
-        const url = new URL(`http://localhost:8080/api/transaction/all/${page}`);
+        const url = new URL(`${API_BASE_URL}/api/transaction/all/${page}`);
         url.searchParams.append('fromDate', fromDate);
         url.searchParams.append('toDate', toDate);
 

@@ -1,6 +1,6 @@
 /* 승인 대기 중 장부 목록 섹션 */
 .pending-approval-section {
-    background-color: #F1F3F5;
+    background-color: white;
     padding: 20px;
     border-radius: 12px;
 }

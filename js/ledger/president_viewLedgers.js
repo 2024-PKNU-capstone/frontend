@@ -1,3 +1,4 @@
+import { API_BASE_URL} from '../../config.js';
 // 초기 페이지 번호 및 페이지 크기 설정
 let currentPage = 1;
 const token = localStorage.getItem('accessToken');
@@ -52,12 +53,12 @@ function formatDateForRequest(date) {
 
 // 각 탭에 대한 장부 리스트를 서버에서 불러오는 함수
 function loadAccountBooks(status, targetListId, fromDate, toDate) {
-    let url = 'http://54.180.138.130:8080/api/account-books';
+    let url = `${API_BASE_URL}/api/account-books`;
 
     // pending 상태일 경우 요청 URL을 다르게 설정
     if (status === 'PENDING') {
         console.log('pending')
-        url = 'http://localhost:8080/api/account-books/approve';
+        url = `${API_BASE_URL}/api/account-books/approve`;
     }
 
     $.ajax({

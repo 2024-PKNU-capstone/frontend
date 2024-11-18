@@ -1,9 +1,11 @@
+import { API_BASE_URL} from '../../config.js';
+
 document.addEventListener('DOMContentLoaded', function() {
     fetchUserProfile();
 
     // 사용자 프로필 정보를 서버에서 가져오는 함수
     function fetchUserProfile() {
-        fetch('http://54.180.138.130:8080/api/users', {
+        fetch(`${API_BASE_URL}/api/users`, {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('accessToken')}` // 필요시 토큰 추가
@@ -28,9 +30,11 @@ document.addEventListener('DOMContentLoaded', function() {
             };
 
             const translatedRole = roleMap[userInfo.data.role] || '알 수 없음'; // 알 수 없는 경우 대비
+            // parent가 null인 경우 공백 처리
+            const parent = userInfo.data.parent || ''; 
 
             // 프로필 정보를 DOM에 반영
-            document.querySelector('.university').textContent = `${userInfo.data.parent} ${userInfo.data.dept}`;
+            document.querySelector('.university').textContent = `${parent} ${userInfo.data.dept}`;
             document.querySelector('.name').textContent = userInfo.data.name;
             document.querySelector('.role').textContent = translatedRole;
             document.querySelector('.id').textContent = userInfo.data.number;
@@ -42,3 +46,4 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+

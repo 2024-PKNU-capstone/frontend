@@ -1,3 +1,4 @@
+import { API_BASE_URL} from '../../config.js';
 $(document).ready(function() {
   loadUserProfile();
 });
@@ -7,7 +8,7 @@ function loadUserProfile() {
   const accessToken = `Bearer ${token}`;
 
   $.ajax({
-      url: 'http://54.180.138.130:8080/api/users',
+      url: `${API_BASE_URL}/api/users`,
       type: 'GET',
       headers: {
           "Content-Type": "application/json",
