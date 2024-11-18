@@ -1,11 +1,19 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
+    let currentPage = 0;
+    let totalPages = Infinity; // 초기에는 무한대로 설정
+    const token = localStorage.getItem('accessToken');
+    const accessToken = `Bearer ${token}`;
+    const transactionListDiv = document.getElementById('transaction-list');
+
+    // 무한 스크롤 트리거 요소 추가
+    const loadMoreTrigger = document.createElement('div');
+    loadMoreTrigger.id = 'loadMoreTrigger';
+    transactionListDiv.after(loadMoreTrigger); // 거래내역 목록 아래에 트리거 추가
+
     fetchTransactions(); // 페이지 시작 시 거래내역 업데이트 요청 추가
 
     // 거래내역을 업데이트하는 함수
     function fetchTransactions() {
-        const token = localStorage.getItem('accessToken');
-        const accessToken = `Bearer ${token}`;
-
         fetch('http://localhost:8080/api/oauth/transactions', {
             method: 'GET',
             headers: {
@@ -39,20 +47,17 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('toDate').value = formatDateInput(toDate);
 
     // 페이지가 로드되면 기본 날짜로 거래내역을 불러옴
-    fetchTransactionList(0, formatDateInput(fromDate), formatDateInput(toDate));
+    fetchTransactionList(currentPage, formatDateInput(fromDate), formatDateInput(toDate));
 
     // 조회 버튼 클릭 이벤트 추가
-    document.getElementById('searchBtn').addEventListener('click', function() {
-        const fromDate = document.getElementById('fromDate').value;
-        const toDate = document.getElementById('toDate').value;
-        fetchTransactionList(0, fromDate, toDate);
+    document.getElementById('searchBtn').addEventListener('click', function () {
+        currentPage = 0; // 페이지 초기화
+        transactionListDiv.innerHTML = ''; // 거래 목록 초기화
+        fetchTransactionList(currentPage, document.getElementById('fromDate').value, document.getElementById('toDate').value);
     });
 
     // 거래내역을 업데이트하는 함수
     function fetchTransactionList(page, fromDate, toDate) {
-        const token = localStorage.getItem('accessToken');
-        const accessToken = `Bearer ${token}`;
-
         const url = new URL(`http://localhost:8080/api/transaction/all/${page}`);
         url.searchParams.append('fromDate', fromDate);
         url.searchParams.append('toDate', toDate);
@@ -65,18 +70,21 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(response => {
             if (response.ok) {
-                return response.json(); // JSON 응답 받음
+                return response.json();
             } else {
                 throw new Error('거래내역을 불러오는 중 오류 발생');
             }
         })
         .then(transactionData => {
-            if (transactionData.data.transactions && transactionData.data.transactions.length > 0) {
-                displayTransactionList(transactionData.data.transactions); // 거래 내역을 표시
-                setupPagination(transactionData.data.totalPages, page, fromDate, toDate); // 페이지네이션 설정
+            if (transactionData.data.transactions.length > 0) {
+                displayTransactionList(transactionData.data.transactions);
+                totalPages = transactionData.data.totalPages; // 전체 페이지 수 업데이트
+                currentPage++; // 다음 페이지로 설정
             } else {
                 console.log("거래 내역이 없습니다.");
-                document.querySelector('.transaction-list').innerHTML = "<p>거래 내역이 없습니다.</p>";
+                if (currentPage === 0) {
+                    transactionListDiv.innerHTML = "<p>거래 내역이 없습니다.</p>";
+                }
             }
         })
         .catch(error => {
@@ -86,17 +94,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 거래내역을 HTML에 표시하는 함수
     function displayTransactionList(transactions) {
-        const transactionListDiv = document.getElementById('transaction-list');
-        transactionListDiv.innerHTML = ''; // 기존 목록 초기화
-
         transactions.forEach(transaction => {
             const transactionItem = document.createElement('div');
             transactionItem.classList.add('transaction-item');
 
             // 금액을 숫자로 변환
             const amount = parseFloat(transaction.amount);
-
-            // amount에 따라 positive/negative 클래스를 설정
             const amountClass = amount >= 0 ? 'positive' : 'negative';
 
             transactionItem.innerHTML = `
@@ -112,27 +115,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // 페이지네이션 버튼을 생성하는 함수
-    function setupPagination(totalPages, currentPage, fromDate, toDate) {
-        const paginationDiv = document.getElementById('pagination');
-        paginationDiv.innerHTML = ''; // 기존 페이지네이션 초기화
-
-        for (let i = 0; i < totalPages; i++) {
-            const pageButton = document.createElement('button');
-            pageButton.textContent = i + 1;
-            pageButton.classList.add('page-btn');
-            if (i === currentPage) {
-                pageButton.classList.add('active');
-            }
-
-            pageButton.addEventListener('click', function() {
-                fetchTransactionList(i, fromDate, toDate); // 해당 페이지의 거래내역을 가져옴
-            });
-
-            paginationDiv.appendChild(pageButton);
-        }
-    }
-
     // 날짜 형식을 원하는 형태로 변환하는 함수
     function formatDate(dateString) {
         const options = { year: 'numeric', month: 'short', day: 'numeric' };
@@ -144,14 +126,19 @@ document.addEventListener('DOMContentLoaded', function() {
     function formatAmount(amount) {
         return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
-});
 
-// 메인 화면으로 돌아가는 함수
-function goToMain() {
-    window.location.href = '../../main.html';
-}
+    // Intersection Observer를 사용하여 무한 스크롤 구현
+    const observer = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting && currentPage < totalPages) {
+            fetchTransactionList(currentPage, document.getElementById('fromDate').value, document.getElementById('toDate').value);
+        }
+    });
 
-// "See all" 클릭 시 거래내역 페이지로 이동
-document.getElementById('seeAll').addEventListener('click', function() {
-    window.location.href = '../transaction/transaction.html'; // transaction.html로 이동
+    // 트리거 요소 관찰 시작
+    observer.observe(loadMoreTrigger);
+
+    // "See all" 클릭 시 거래내역 페이지로 이동
+    document.getElementById('seeAll').addEventListener('click', function () {
+        window.location.href = '../transaction/transaction.html'; // transaction.html로 이동
+    });
 });

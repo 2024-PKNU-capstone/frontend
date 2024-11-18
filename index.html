@@ -35,7 +35,7 @@
             width: 200px;
             padding: 15px 20px;
             margin: 10px auto;
-            background-color: #4CAF50;
+            background-color: #ee795e;
             color: white;
             text-align: center;
             text-decoration: none;
@@ -44,21 +44,54 @@
         }
 
         .button:hover {
-            background-color: #45a049;
+            background-color: #f05836;
         }
 
         .login {
-            background-color: #008CBA;
+            background-color: #ee9f5e;
         }
 
         .login:hover {
-            background-color: #007bb5;
+            background-color: #ec7f26;
+        }
+
+        @media screen and (max-width: 600px) {
+            .container img{
+                width: 70px;
+                margin-bottom: 0;
+            }
+            .button {
+                display: block;
+                width: 150px;
+                padding: 10px 15px;
+                margin: 10px;
+                margin-top: 0;
+                background-color: #ee795e;
+                color: white;
+                text-align: center;
+                text-decoration: none;
+                border-radius: 30px;
+                font-size: 14px;
+            }
+
+            .button:hover {
+            background-color: #f05836;
+            }
+
+            .login {
+                background-color: #ee9f5e;
+            }
+
+            .login:hover {
+                background-color: #ec7f26;
+            }
+
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Welcome</h1>
+        <h1><img src="resource/icons/장부로고(오렌지).png" width="130px"></h1>
         <a href="./pages/login&signup/signup.html" class="button signup">회원가입</a>
         <a href="./pages/login&signup/login.html" class="button login">로그인</a>
     </div>

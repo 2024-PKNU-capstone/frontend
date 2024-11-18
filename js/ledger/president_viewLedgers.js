@@ -124,15 +124,38 @@ function displayAccountBooks(accountBooks, targetListId,status) {
 function navigateToDetail(accountBookId, status) {
     console.log(status)
     const detailPage = status === 'PENDING' ? 'approveLedgerDetail.html' : 'viewLedgerDetail.html';
-    window.location.href = `../../pages/ledger/${detailPage}?id=${accountBookId}`;
+    window.location.href = `../../ledger/${detailPage}?id=${accountBookId}`;
 }
 
 
 // 페이지 로드 시 첫 번째 요청 실행
 $(document).ready(function() {
     // 초기 공개 장부 로드
-    const fromDate = $('#pending-from-date').val();
-    const toDate = $('#pending-to-date').val();
-    loadAccountBooks('PENDING', 'pending-account-book-list', fromDate, toDate);
+    const fromDate = $('#unapproved-from-date').val();
+    const toDate = $('#unapproved-to-date').val();
+    loadAccountBooks('UNAPPROVED', 'unapproved-account-book-list', fromDate, toDate);
 
+    // 탭 클릭 이벤트 설정
+    $('.tab').click(function() {
+        const tabName = $(this).data('tab');
+        currentPage = 1; // 페이지 번호 초기화
+
+        if (tabName === 'unapproved') {
+            const fromDate = $('#unapproved-from-date').val();
+            const toDate = $('#unapproved-to-date').val();
+            loadAccountBooks('UNAPPROVED', 'unapproved-account-book-list', fromDate, toDate);
+        } else if (tabName === 'pending') {
+            const fromDate = $('#pending-from-date').val();
+            const toDate = $('#pending-to-date').val();
+            loadAccountBooks('PENDING', 'pending-account-book-list', fromDate, toDate);
+        } else if (tabName === 'unaudited') {
+            const fromDate = $('#unaudited-from-date').val();
+            const toDate = $('#unaudited-to-date').val();
+            loadAccountBooks('UNAUDITED', 'unaudited-account-book-list', fromDate, toDate);
+        } else if (tabName === 'public') {
+            const fromDate = $('#public-from-date').val();
+            const toDate = $('#public-to-date').val();
+            loadAccountBooks('PUBLIC', 'public-account-book-list', fromDate, toDate);
+        }
+    });
 });

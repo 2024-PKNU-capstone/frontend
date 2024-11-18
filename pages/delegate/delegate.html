@@ -4,32 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>위임하기 페이지</title>
+    <link rel="stylesheet" href="../../CSS/main.css">
     <link rel="stylesheet" href="../../CSS/appoint/appoint.css">
 </head>
 <body>
-    <h1>위임하기</h1> <!-- 위임하기는 회장과 감사만! -->
+    <div class="main-container">
+        <!-- 프로필 섹션 -->
+        <div class="profile-section">
+            <!-- 왼쪽 대학 정보 및 이름 수직 배열 -->
+            <div class="profile-left">
+                <p class="university">부경대학교 정보융합대학</p> <!-- 대학 정보 -->
+                <p class="name">강지원</p> <!-- 이름 -->
+            </div>
+            <!-- 오른쪽 역할 및 학번 수평 배열 -->
+            <div class="role-info">
+                <p class="role">감사</p> <!-- 역할 -->
+                <p class="id">201911111</p> <!-- 학번 -->
+            </div>
+        </div>
     
-    <!-- 이름 입력 그룹 -->
-    <div class="input-group">
-        <label for="name">이름:</label>
-        <input type="text" id="name" name="name" required>
+        <div class = "appoint-section">
+            <h1>위임하기</h1> 
+            <!-- 이름 입력 그룹 -->
+            <div class="input-group">
+                <label for="name">이름:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <!-- 학번 입력 그룹 -->
+            <div class="input-group">
+                <label for="student-id">학번:</label>
+                <input type="text" id="student-id" name="student-id" required>
+            </div>
+    
+            <!-- 동의 체크박스 -->
+            <label for="consent">
+                <input type="checkbox" id="consent"> 동의합니다
+            </label><br>
+            
+            <!-- 위임하기 버튼 -->
+            <button id="delegate-btn" disabled>임명하기</button>
+        </div>
     </div>
-    
-    <!-- 학번 입력 그룹 -->
-    <div class="input-group">
-        <label for="student-id">학번:</label>
-        <input type="text" id="student-id" name="student-id" required>
-    </div>
-    
-    <!-- 동의 체크박스 -->
-    <label for="consent">
-        <input type="checkbox" id="consent"> 동의합니다
-    </label>
-    
-    <!-- 위임하기 버튼 -->
-    <button id="delegate-btn" disabled>위임하기</button>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../../js/delegate/delegate.js"></script>
 </body>
 </html>
+
+

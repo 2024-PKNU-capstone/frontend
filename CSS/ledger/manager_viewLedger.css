@@ -1,0 +1,234 @@
+/* 헤더 스타일 */
+h2 {
+    margin-bottom: 15px;
+}
+
+/* 장부 리스트 섹션 */
+.account-book-section {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative; /* 새로고침 버튼을 이 영역에 고정 */
+}
+
+/* 제목 스타일 */
+.account-book-list h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* 거래 정보 스타일 */
+.account-book-info {
+    flex: 1;
+}
+
+/* 거래 항목 스타일 */
+.account-book-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border: 1px solid #ddd;
+}
+
+.account-book-item:hover {
+    background-color: #f1f1f1;
+}
+
+/* 점 스타일 */
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #ff4081;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.account-book-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.account-book-doc-num {
+    font-size: 14px;
+    color: #999;
+}
+
+/* 금액 스타일 */
+.account-book-amount {
+    font-size: 18px;
+    color: #e53935;
+    font-weight: bold;
+}
+
+/* 드롭다운 스타일 */
+.tab-selection {
+    display: flex;
+    margin-top: 15px;
+}
+
+.tab-label {
+    font-weight: bold;
+    color: #333;
+    margin-right: 10px;
+}
+
+#tab-select {
+    padding: 8px 25px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    font-size: 12px;
+    color: #495057;
+    background-color: #ffffff;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+    width: 150px;
+}
+
+#tab-select:focus {
+    border-color: #ff7e5f;
+    outline: none;
+}
+
+/* 날짜 선택 섹션 스타일 */
+.date-selection {
+    display: flex;
+    align-items: flex-end; /* 조회 버튼을 아래쪽에 맞춤 */
+    justify-content: space-between; /* 좌우 끝으로 정렬 */
+    gap: 10px; /* 각 필드 간 간격 */
+    width: 100%; /* 가로로 꽉 차게 설정 */
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.date-label-date {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* 왼쪽 정렬 */
+    gap: 5px;
+    flex: 1; /* 각 날짜 선택 필드가 가능한 넓게 차지하도록 */
+}
+
+.date-selection label {
+    font-weight: bold;
+    font-size: 14px;
+    color: #495057;
+}
+
+.date-selection input[type="date"] {
+    padding: 8px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #495057;
+    transition: border-color 0.3s ease;
+    width: 100%; /* 날짜 선택 필드를 가로로 꽉 차게 */
+}
+
+.date-selection input[type="date"]:focus {
+    border-color: #ff7e5f;
+    outline: none;
+}
+
+.date-selection button {
+    padding: 10px 20px;
+    background-color: #ff7e5f;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 10px; /* 버튼 왼쪽 간격 */
+}
+
+.date-selection button:hover {
+    background-color: #ff5227;
+}
+
+
+
+
+
+
+/* 미디어 쿼리: 화면 너비가 600px 이하일 때만 적용 */
+@media screen and (max-width: 600px) {
+    h2 {
+        font-size: 20px;
+    }
+
+    /* 장부 리스트 섹션 */
+    .account-book-section {
+        padding: 15px;
+    }
+
+    /* 거래 항목 스타일 */
+    .account-book-item {
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    #tab-select {
+        padding: 5px 18px;
+    }
+
+    /* 점 스타일 */
+    .dot {
+        width: 8px;
+        height: 8px;
+        margin-right: 10px;
+    }
+
+    /* 제목과 금액 스타일 */
+    .account-book-title {
+        font-size: 16px;
+        margin-bottom: 3px;
+    }
+
+    .account-book-doc-num {
+        font-size: 12px;
+    }
+
+    .account-book-amount {
+        font-size: 16px;
+    }
+
+    .tab-selection {
+        margin-top:0;
+        max-width: 10px;
+    }
+
+     /* 날짜 선택 섹션 */
+     .date-selection {
+        flex-direction: row; /* 모바일에서도 가로 정렬 유지 */
+        font-size: 12px;
+        gap: 8px; /* 간격 축소 */
+    }
+
+    .date-selection label {
+        font-size: 12px;
+    }
+
+    .date-selection input[type="date"] {
+        font-size: 12px;
+        padding: 4px 8px; /* 패딩 축소 */
+    }
+
+    .date-selection button {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+}

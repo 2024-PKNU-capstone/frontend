@@ -1,52 +1,81 @@
-body {
-    margin: 0;
+/* 임명 섹션 */
+.appoint-section {
+    background-color: #F1F3F5;
     padding: 20px;
-    font-family: Arial, sans-serif;
+    border-radius: 12px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    min-height: 100vh;
+    gap: 15px;
+    width: 100%;
 }
 
-h1 {
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 50px;
-}
-
+/* 입력 그룹 */
 .input-group {
-    display: flex;
-    align-items: center;
+   display: flex;
+    flex-direction: column;
     margin-bottom: 10px;
+    max-width: 100%; /* 그룹의 너비를 섹션 내에서 제한 */
 }
 
 .input-group label {
-    margin-right: 10px;
+    margin-bottom: 5px;
     font-size: 14px;
-    flex: 1;
+    font-weight: 500;
 }
 
 .input-group input[type="text"] {
-    flex: 3;
-    padding: 8px;
+    padding: 10px;
     font-size: 16px;
-    border: 1px solid #ccc;
+    border: 1px solid #ced4da;
     border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-group input[type="text"]:focus {
+    border-color: #4c6ef5;
+    box-shadow: 0 0 5px rgba(76, 110, 245, 0.2);
+}
+
+.input-group input[type="text"],
+.input-group .radio-group label {
+    max-width: 100%; /* 개별 요소의 최대 너비 */
 }
 
 /* 역할 선택 그룹 */
-.input-group.role-group {
+.input-group.role-selection {
     display: flex;
-    flex-wrap: nowrap;  /* 줄바꿈 방지 */
-    gap: 20px;          /* 라디오 버튼 사이 간격 조정 */
-    justify-content: flex-start;
-    align-items: center;
+    flex-direction: column; /* 레이블과 라디오 그룹을 세로로 정렬 */
+    margin-bottom: 15px;
+}
+
+.input-group.role-selection label:first-child {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 5px; /* 역할 선택 레이블과 라디오 버튼 간의 간격 */
 }
 
 
-.input-group.role-group input[type="radio"] {
+/* 역할 선택 그룹 */
+.input-group.role-selection .radio-group {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* 중앙 정렬 */
+    gap: 20px; /* 라디오 버튼과 라벨 사이의 간격 */
+}
+
+
+.input-group.role-selection .radio-group label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.input-group.role-selection .radio-group input[type="radio"] {
     margin-right: 5px;
 }
+
 
 /* 동의 체크박스 */
 label[for="consent"] {
@@ -60,24 +89,56 @@ input[type="checkbox"] {
     margin-right: 10px;
 }
 
-/* 위임하기 버튼을 화면 하단에 고정 */
+/* 임명하기 버튼 */
 #delegate-btn {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;  /* 버튼이 화면 너비의 80% 차지 */
+    background-color: #4c6ef5;
+    color: white;
+    border: none;
+    border-radius: 8px;
     padding: 15px;
     font-size: 18px;
-    border: 2px solid #000;
-    background-color: transparent;
-    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    width: 80%; /* 너비를 80%로 설정 */
+    max-width: 500px; /* 최대 너비 설정 */
+    margin: 0 auto; /* 버튼을 중앙 정렬 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* 버튼 비활성화 상태 */
 #delegate-btn:disabled {
-    border-color: #ccc;
-    color: #ccc;
+    background-color: #ccc;
+    color: #666;
     cursor: not-allowed;
+    box-shadow: none;
+}
+
+
+/* 미디어 쿼리: 화면 너비가 600px 이하일 때만 적용 */
+@media screen and (max-width: 600px) {
+    .appoint-section {
+        padding: 15px;
+        max-width: 100%; /* 최대 너비 제한 제거 */
+        gap: 10px; /* 요소 간의 간격 줄이기 */
+    }
+
+    .input-group label {
+        font-size: 13px; /* 폰트 크기 줄이기 */
+    }
+
+    .input-group input[type="text"] {
+        font-size: 14px; /* 입력 필드의 폰트 크기 줄이기 */
+        padding: 8px; /* 패딩 줄이기 */
+    }
+
+    .input-group.role-selection .radio-group {
+        flex-direction: column; /* 라디오 버튼 세로 정렬 */
+        gap: 10px; /* 요소 간의 간격 줄이기 */
+    }
+
+    #delegate-btn {
+        font-size: 16px; /* 버튼 폰트 크기 줄이기 */
+        padding: 12px; /* 버튼 패딩 줄이기 */
+        width: 100%; /* 버튼 너비를 100%로 유지 */
+        max-width: none; /* 최대 너비 제한 해제 */
+    }
 }

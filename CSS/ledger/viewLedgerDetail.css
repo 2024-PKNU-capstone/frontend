@@ -3,11 +3,13 @@ header {
     width: 100%;
     max-width: 600px;
     text-align: left;
-    margin: 20px auto; /* 중앙 정렬 */
+    margin: 0px auto; /* 중앙 정렬 */
     margin-bottom: 0px;
+    padding-top:0;
 }
 
 .department-info {
+    padding-top:0;
     font-size: 14px;
     color: #ADB5BD;
 }
@@ -32,12 +34,11 @@ header {
 /* 사용 내역 섹션 */
 .usage-section {
     width: 100%;
-    max-width: 600px;
+    max-width: 800px;
     background-color: #FFFFFF;
-    padding: 0px 20px;
+    padding: 20px 20px;
     border-radius: 12px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-    margin: 20px auto; /* 중앙 정렬 */
 }
 
 .usage-section h3 {
@@ -48,44 +49,20 @@ header {
 }
 
 .usage-purpose, .usage-amount,.usage-descript {
-    font-size: 18px;
     color: #343a40;
     padding: 10px;
     background-color: #F1F3F5;
     border-radius: 8px;
     margin-top: 5px;
+    font-size: 14px;
 }
 
 /* 영수증 상세 내역 */
 .receipt-detail {
-    margin-top: 20px;
+    margin-top: 5px;
     padding: 10px;
     background-color: #F1F3F5;
     border-radius: 8px;
-}
-
-.receipt-date {
-    font-size: 14px;
-    color: #ADB5BD;
-    margin-bottom: 5px;
-}
-
-.receipt-store {
-    font-size: 16px;
-    font-weight: bold;
-    color: #495057;
-    text-align: center;
-}
-
-.item-detail {
-    display: flex;
-    justify-content: space-between;
-    padding: 5px 0;
-}
-
-.item-detail p {
-    font-size: 14px;
-    color: #343a40;
 }
 
 /* 승인/반려 버튼 섹션 */
@@ -110,20 +87,21 @@ header {
 }
 
 .approve-btn {
-    background-color: #28a745; /* 녹색 - 승인 */
+    background-color: #ff7e5f; /* 녹색 - 승인 */
 }
 
 .reject-btn {
-    background-color: #dc3545; /* 빨간색 - 반려 */
+    background-color: #feb47b; /* 빨간색 - 반려 */
 }
 
 .approve-btn:hover {
-    background-color: #218838;
+    background-color: #ff552a;
 }
 
 .reject-btn:hover {
-    background-color: #c82333;
+    background-color: #ff7f1d;
 }
+
 
 /* 반응형 디자인 */
 @media screen and (max-width: 600px) {
