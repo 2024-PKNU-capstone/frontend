@@ -4,7 +4,7 @@ $(document).ready(function () {
     // 미등록 장부 리스트를 불러오는 함수
     function loadUnregisteredLedgers() {
         $.ajax({
-            url: 'http://localhost:8080/api/account-books/approve',
+            url: 'http://54.180.138.130:8080/api/account-books/approve',
             method: "GET",
             headers: {
                 "Content-Type": "application/json",

@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const accessToken = `Bearer ${token}`;
         console.log("Authorization header:", accessToken);
 
-        fetch('http://localhost:8080/api/oauth/open-bank', {
+        fetch('http://54.180.138.130:8080/api/oauth/open-bank', {
             method: 'GET',
             headers: {
                 'Authorization': accessToken

@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const token = localStorage.getItem('accessToken'); // 필요한 경우 로컬스토리지에서 토큰을 불러옴
         const accessToken = `Bearer ${token}`;
 
-        fetch('http://localhost:8080/api/transaction/latest', {
+        fetch('http://54.180.138.130:8080/api/transaction/latest', {
             method: 'GET',
             headers: {
                 'Authorization': accessToken

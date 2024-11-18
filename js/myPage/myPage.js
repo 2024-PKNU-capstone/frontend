@@ -7,7 +7,7 @@ function loadUserProfile() {
   const accessToken = `Bearer ${token}`;
 
   $.ajax({
-      url: 'http://localhost:8080/api/users',
+      url: 'http://54.180.138.130:8080/api/users',
       type: 'GET',
       headers: {
           "Content-Type": "application/json",

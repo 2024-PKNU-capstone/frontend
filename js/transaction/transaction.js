@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 거래내역을 업데이트하는 함수
     function fetchTransactions() {
-        fetch('http://localhost:8080/api/oauth/transactions', {
+        fetch('http://54.180.138.130:8080/api/oauth/transactions', {
             method: 'GET',
             headers: {
                 'Authorization': accessToken

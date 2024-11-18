@@ -54,7 +54,7 @@ function formatDateForRequest(date) {
 // 각 탭에 대한 장부 리스트를 서버에서 불러오는 함수
 function loadAccountBooks(status, targetListId, fromDate, toDate) {
     $.ajax({
-        url: 'http://localhost:8080/api/account-books',
+        url: 'http://54.180.138.130:8080/api/account-books',
         type: 'GET',
         headers: {
             "Content-Type": "application/json",

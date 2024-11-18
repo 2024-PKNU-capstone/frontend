@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         copyLinkBtn.style.display = 'none'; // 복사 버튼 숨기기
 
         // 서버에 GET 요청
-        fetch('http://localhost:8080/api/univ/signup-link', {
+        fetch('http://54.180.138.130:8080/api/univ/signup-link', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

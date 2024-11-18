@@ -48,7 +48,7 @@ $(document).ready(function() { // ready를 통해 DOM이 완전 준비되면 js�
 
       // AJAX 요청
       $.ajax({
-          url: 'http://localhost:8080/api/users/appoint',  // API 엔드포인트 URL? -> 맞는지 체크해야됨
+          url: 'http://54.180.138.130:8080/api/users/appoint',  // API 엔드포인트 URL? -> 맞는지 체크해야됨
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',

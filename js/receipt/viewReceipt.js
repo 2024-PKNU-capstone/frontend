@@ -7,7 +7,7 @@ function loadReceipts() {
     const accessToken = `Bearer ${token}`;
     
     $.ajax({
-        url: 'http://localhost:8080/api/receipts',  // 실제 영수증 API URL로 변경
+        url: 'http://54.180.138.130:8080/api/receipts',  // 실제 영수증 API URL로 변경
         type: 'GET',
         headers: {
             "Content-Type": "application/json; charset=utf-8",

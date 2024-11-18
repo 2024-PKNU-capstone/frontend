@@ -19,7 +19,7 @@ $(document).ready(function() {
 
       // AJAX 요청
       $.ajax({
-          url: '/api/users/delegate',  // API 엔드포인트 URL -> 나중에 확인해야함
+          url: 'http://54.180.138.130:8080/api/users/delegate',  // API 엔드포인트 URL -> 나중에 확인해야함
           method: 'PATCH',
           headers: {
               'Content-Type': 'application/json',

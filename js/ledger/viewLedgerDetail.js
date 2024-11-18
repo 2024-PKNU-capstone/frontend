@@ -12,7 +12,7 @@ const accessToken = `Bearer ${token}`;
 // 장부 상세 정보를 불러오는 함수
 function loadAccountBookDetail(docNum) {
   $.ajax({
-      url: `http://localhost:8080/api/account-books/${docNum}`,  // 상세보기 API 엔드포인트
+      url: `http://54.180.138.130:8080/api/account-books/${docNum}`,  // 상세보기 API 엔드포인트
       type: 'GET',
       headers: {
           "Authorization": accessToken

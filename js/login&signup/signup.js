@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         // 서버로 POST 요청
-        fetch(`http://localhost:8080/api/univ/register/${role}?parentId=${parentId}`, {
+        fetch(`http://54.180.138.130:8080/api/univ/register/${role}?parentId=${parentId}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

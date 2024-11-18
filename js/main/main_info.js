@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 사용자 프로필 정보를 서버에서 가져오는 함수
     function fetchUserProfile() {
-        fetch('http://localhost:8080/api/users', {
+        fetch('http://54.180.138.130:8080/api/users', {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('accessToken')}` // 필요시 토큰 추가

@@ -52,7 +52,7 @@ function formatDateForRequest(date) {
 
 // 각 탭에 대한 장부 리스트를 서버에서 불러오는 함수
 function loadAccountBooks(status, targetListId, fromDate, toDate) {
-    let url = 'http://localhost:8080/api/account-books';
+    let url = 'http://54.180.138.130:8080/api/account-books';
 
     // pending 상태일 경우 요청 URL을 다르게 설정
     if (status === 'PENDING') {

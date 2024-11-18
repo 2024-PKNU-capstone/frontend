@@ -4,7 +4,7 @@ const accessToken = `Bearer ${token}`;
 $(document).ready(function() { 
   function loadPayerList() {
     $.ajax({
-      url: 'http://localhost:8080/api/users/payed',
+      url: 'http://54.180.138.130:8080/api/users/payed',
       type: 'GET',
       headers: {
         "Content-Type": "application/json",
