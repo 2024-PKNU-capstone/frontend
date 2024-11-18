@@ -52,49 +52,56 @@
       }
     }
 
-    // 파일 업로드 함수 정의
     function uploadReceipt() {
-      const fileInput = document.getElementById('cameraInput'); // 파일 입력 필드 선택
-      const files = fileInput.files; // 선택된 파일 목록
+    const fileInput = document.getElementById('cameraInput'); // 파일 입력 필드 선택
+    const files = fileInput.files; // 선택된 파일 목록
 
-      // 파일이 선택되지 않았을 경우 경고 메시지를 표시하고 함수 종료
-      if (files.length === 0) {
-        alert("업로드할 파일을 선택하세요.");
-        return;
-      }
-
-      const formData = new FormData(); // 파일을 서버로 전송하기 위해 FormData 객체 생성
-      $.each(files, function(i, file) { // 선택된 파일을 순회하여 FormData에 추가
-        formData.append("receipts", file); // "receipts"라는 이름으로 파일 추가
-      });
-
-      // AJAX 요청을 통해 서버에 파일 업로드
-      $.ajax({
-        url: '/api/receipts/upload',  // 서버 API URL (명세서에 따른 URL)
-        type: 'POST', // HTTP 메서드: POST 사용
-        headers: {
-          "Authorization": "Bearer {token}", // 인증 토큰 (API 명세서에 따른 Bearer 토큰 방식)
-        },
-        data: formData, // FormData 객체 (파일 데이터 포함)
-        contentType: false, // 파일 업로드 시 필요: 기본 contentType 사용 안 함
-        processData: false, // 데이터의 자동 변환 방지 (파일 업로드 시 필요)
-        
-        // 요청 성공 시 실행되는 콜백 함수
-        success: function(response, status, xhr) {
-          if (xhr.status === 201) { // HTTP 상태 코드 201(Created)일 경우
-            alert("영수증 업로드 성공: " + response.message); // 성공 메시지 표시
-            // 서버가 응답 헤더에 포함한 새 Access-Token 및 Refresh-Token을 콘솔에 출력
-            console.log("Access-Token:", xhr.getResponseHeader("Access-Token"));
-            console.log("Refresh-Token:", xhr.getResponseHeader("Refresh-Token"));
-          }
-        },
-        
-        // 요청 실패 시 실행되는 콜백 함수
-        error: function(xhr, status, error) {
-          alert("영수증 업로드 실패: " + xhr.responseText); // 오류 메시지 표시
-        }
-      });
+    // 파일이 선택되지 않았을 경우 경고 메시지를 표시하고 함수 종료
+    if (files.length === 0) {
+      alert("업로드할 파일을 선택하세요.");
+      return;
     }
+
+    const formData = new FormData(); // 파일을 서버로 전송하기 위해 FormData 객체 생성
+
+    // 선택된 파일을 FormData에 추가
+    $.each(files, function (i, file) {
+      formData.append("files", file); // 서버에서 @RequestParam("files")로 매핑
+    });
+
+    // documentId를 옵셔널하게 추가
+    const documentId = 123; // 필요한 경우 동적으로 설정 (예: 사용자 입력이나 선택값 기반)
+    if (documentId) {
+      formData.append("documentId", documentId);
+    }
+
+    // AJAX 요청을 통해 서버에 파일 업로드
+    $.ajax({
+      url: 'http://localhost:8080/api/upload/receipt', // 서버 API URL
+      type: 'POST', // HTTP 메서드: POST 사용
+      headers: {
+        "Authorization": `Bearer ${localStorage.getItem('accessToken')}`, // 인증 토큰 (API 명세서에 따라 변경)
+      },
+      data: formData, // FormData 객체 (파일 데이터 포함)
+      contentType: false, // 파일 업로드 시 필요: 기본 contentType 사용 안 함
+      processData: false, // 데이터의 자동 변환 방지 (파일 업로드 시 필요)
+
+      // 요청 성공 시 실행되는 콜백 함수
+      success: function (response, status, xhr) {
+        if (xhr.status === 201) { // HTTP 상태 코드 201(Created)일 경우
+          alert("영수증 업로드 성공: " + response.message); // 성공 메시지 표시
+          // 서버가 응답 헤더에 포함한 새 Access-Token 및 Refresh-Token을 콘솔에 출력
+          console.log("Access-Token:", xhr.getResponseHeader("Access-Token"));
+          console.log("Refresh-Token:", xhr.getResponseHeader("Refresh-Token"));
+        }
+      },
+
+      // 요청 실패 시 실행되는 콜백 함수
+      error: function (xhr, status, error) {
+        alert("영수증 업로드 실패: " + xhr.responseText); // 오류 메시지 표시
+      }
+  });
+}
   </script>
 </body>
 </html>
