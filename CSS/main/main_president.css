@@ -1,0 +1,98 @@
+/*모달창*/
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    width: 500px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content {
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.link-container {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.link-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 8px 0 0 8px; /* 왼쪽 둥근 모서리 */
+    outline: none;
+    font-size: 16px;
+    background-color: #f1f3f5;
+}
+
+.copy-btn {
+    padding: 10px 20px;
+    border: 1px solid #ced4da;
+    border-radius: 0 8px 8px 0; /* 오른쪽 둥근 모서리 */
+    background-color: #ff7e5f;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    border-left: none; /* 왼쪽 테두리 제거 */
+}
+
+.copy-btn:hover {
+    background-color: #ff4f23;
+}
+
+/* 모바일 뷰에서의 모달 창 스타일 */
+@media screen and (max-width: 600px) {
+    .modal {
+        width: 80%; /* 화면 크기에 맞춰 모달 너비 조정 */
+        padding: 15px; /* 내부 여백 감소 */
+    }
+
+    .modal-content {
+        text-align: center; /* 중앙 정렬 */
+    }
+
+    .close-btn {
+        top: 0px;
+        right: 3px;
+        font-size: 15px; /* 버튼 크기 감소 */
+    }
+
+    h2 {
+        font-size: 18px; /* 헤더 글씨 크기 축소 */
+        margin-bottom: 10px;
+    }
+
+    .link-container {
+        flex-direction: column; /* 세로 정렬 */
+        align-items: stretch; /* 너비를 100% 사용 */
+    }
+
+    .link-input {
+        width: 100%; /* 전체 너비 사용 */
+        border-radius: 8px; /* 둥근 모서리 */
+        margin-bottom: 10px; /* 아래쪽 여백 추가 */
+    }
+
+    .copy-btn {
+        width: 100%; /* 버튼 너비를 입력 필드와 동일하게 설정 */
+        border-radius: 8px; /* 둥근 모서리 */
+        margin: 0; /* 여백 제거 */
+        padding:5px;
+    }
+}

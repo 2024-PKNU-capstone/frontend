@@ -1,0 +1,121 @@
+/* 사용 내역 섹션 */
+.usage-section {
+    width: 100%;
+    max-width: 800px;
+    background-color: #FFFFFF;
+    padding: 20px 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 상단 정보 스타일 */
+.date-document {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.department-info {
+    font-size: 14px;
+    color: #ADB5BD;
+    margin-bottom: 10px;
+}
+
+.date {
+    font-size: 24px;
+    font-weight: bold;
+    color: #343a40;
+}
+
+.document-number {
+    font-size: 14px;
+    color: #ADB5BD;
+}
+
+/* 제목 및 입력 필드 스타일 */
+.usage-section h3 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #495057;
+    margin-top: 15px;
+    margin-bottom: 8px;
+}
+
+input.usage-purpose, input.usage-amount, textarea.usage-descript {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    color: #343a40;
+    background-color: #F1F3F5;
+    border: 1px solid #DEE2E6;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    transition: border-color 0.3s ease;
+}
+
+input.usage-purpose:focus, input.usage-amount:focus, textarea.usage-descript:focus {
+    outline: none;
+    border-color: #ff7e5f;
+}
+
+/* 텍스트 에어리어 */
+textarea.usage-descript {
+    resize: none;
+    height: 100px;
+}
+
+/* 파일 업로드 */
+.receipt-detail input[type="file"] {
+    font-size: 14px;
+    padding: 8px;
+    border: none;
+    background-color: #F1F3F5;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* 등록 버튼 */
+.button-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#save-btn {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #ff7e5f;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#save-btn:hover {
+    background-color: #ff552a;
+}
+
+/* 반응형 스타일 */
+@media screen and (max-width: 600px) {
+    .usage-section {
+        padding: 15px;
+    }
+
+    .date {
+        font-size: 20px;
+    }
+
+    input.usage-purpose, input.usage-amount, textarea.usage-descript {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    #save-btn {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}

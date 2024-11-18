@@ -1,19 +1,20 @@
 /* 잔액 섹션 */
 .account-section {
-    background-color: #F1F3F5;
+    background-color: #ffffff;
     padding: 20px;
     border-radius: 12px;
     display: flex;
     flex-direction: column;
     width: 100%;
     position: relative; /* 새로고침 버튼을 이 영역에 고정 */
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
 }
 
 .account-section h2 {
-    font-size: 20px;
     font-weight: bold;
     margin-bottom: 15px;
     color: #343a40;
+    margin-bottom: 0px;
 }
 
 .account-info {
@@ -25,6 +26,7 @@
     font-size: 18px;
     color: #868e96;
 }
+
 
 .add-account-btn {
     background-color: #DEE2E6;
@@ -62,9 +64,10 @@
 
 /* 거래내역 섹션 */
 .transaction-section {
-    background-color: #F1F3F5;
+    background-color: #ffffff;
     padding: 20px;
     border-radius: 12px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
 }
 
 .transaction-header {
@@ -129,9 +132,19 @@
 
 /* 반응형 디자인 */
 @media screen and (max-width: 600px) {
-    
     .account-section {
         padding: 20px;
+
+    }
+    .account-section h2 {
+        font-size: 15px;
+        font-weight: bold;
+        margin-bottom: 15px;
+        color: 
+        #343a40;
+    }
+    .account-amount{
+        font-size:15px;
     }
 
     .transaction-section {

@@ -1,4 +1,3 @@
-
 // DOM 요소 가져오기
 const nameInput = document.getElementById('name'); // 이름
 const studentIdInput = document.getElementById('student-id'); // 학번
@@ -26,7 +25,10 @@ $(document).ready(function() { // ready를 통해 DOM이 완전 준비되면 js�
       // 입력된 데이터 가져오기
       const name = $('#name').val(); // 이름 가져옴
       const studentId = $('#student-id').val(); // 학번 가져옴
-      const role = $('input[name="role"]:checked').val();
+      let role = $('input[name="role"]:checked').val();
+
+      const token = localStorage.getItem('accessToken');
+      const accessToken = `Bearer ${token}`;
 
       // 동의 여부 확인
       const consent = $('#consent').is(':checked');
@@ -41,13 +43,16 @@ $(document).ready(function() { // ready를 통해 DOM이 완전 준비되면 js�
           return;
       }
 
+      // 역할 설정: '부회장'이면 VICE_PRESIDENT, 아니면 MANAGER로 설정
+      role = role === '부회장' ? 'VICE_PRESIDENT' : 'MANAGER';
+
       // AJAX 요청
       $.ajax({
-          url: '/api/users/appoint',  // API 엔드포인트 URL? -> 맞는지 체크해야됨
-          method: 'PATCH',
+          url: 'http://localhost:8080/api/users/appoint',  // API 엔드포인트 URL? -> 맞는지 체크해야됨
+          method: 'POST',
           headers: {
               'Content-Type': 'application/json',
-              'Authorization': '본인 인증 JWT'  // JWT 토큰 삽입
+              'Authorization': accessToken  // JWT 토큰 삽입
           },
           data: JSON.stringify({
               name: name,

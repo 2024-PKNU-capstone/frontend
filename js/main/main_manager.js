@@ -50,7 +50,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // 특정 쿠키의 값을 얻는 함수
     function getCookieValue(name) {
         const cookies = document.cookie
-        alert(document.cookie);
         console.log("All cookies:", cookies); // 현재 쿠키 전체를 확인
     
         for (let cookie of cookies) {
@@ -378,7 +377,7 @@ function displayAccountBalance(balance) {
 
     const accountInfoDiv = document.querySelector('.account-info');
     accountInfoDiv.innerHTML = `
-        <span style="font-size: 40px; font-weight: bold; color: #343a40;">${formatAmount(formattedBalance)}</span>
+        <span class="account-amount" style="font-size: 40px; font-weight: bold; color: #343a40;">${formatAmount(formattedBalance)}</span>
         <span style="font-size:24px;">원</span>
     `;
     document.querySelector('.add-account-btn').style.display = 'none'; // 등록 버튼 숨기기

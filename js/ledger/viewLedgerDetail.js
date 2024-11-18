@@ -31,6 +31,10 @@ function loadAccountBookDetail(docNum) {
 // 받은 데이터를 HTML에 표시하는 함수
 function displayAccountBookDetail(data) {
   const detailContainer = $('#account-book-detail');
+  console.log(data)
+
+  // createdAt에서 T를 기준으로 앞부분만 추출
+  const dateOnly = data.createdAt ? data.createdAt.split('T')[0] : 'N/A';
   
   // HTML 목업 구조에 맞춰 동적으로 데이터를 생성 및 삽입
   detailContainer.html(`
@@ -38,14 +42,14 @@ function displayAccountBookDetail(data) {
       <header>
           <p class="department-info">부경대학교 컴퓨터공학부 장부</p>
           <div class="date-document">
-              <h1 class="date">${data.createdAt}</h1>
+              <h1 class="date">${dateOnly}</h1>
               <p class="document-number">문서번호 ${data.docNum}</p>
           </div>
       </header>
       
       <!-- 사용 목적 -->
       <h3>사용목적</h3>
-      <p class="usage-purpose">${data.purpose || 'N/A'}</p>
+      <p class="usage-purpose">${data.title || 'N/A'}</p>
 
       <!-- 사용 금액 -->
       <h3>사용금액</h3>
@@ -53,7 +57,7 @@ function displayAccountBookDetail(data) {
 
       <!-- 상세 설명 -->
       <h3>상세설명</h3>
-      <p class="usage-descript">${data.description || 'N/A'}</p>
+      <p class="usage-descript">${data.content || 'N/A'}</p>
 
       <!-- 영수증 상세 내역 -->
       <h3>영수증 상세 내역</h3>

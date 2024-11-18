@@ -15,13 +15,13 @@
         <div class="profile-section">
             <!-- 왼쪽 대학 정보 및 이름 수직 배열 -->
             <div class="profile-left">
-                <p class="university">부경대학교 정보융합대학</p> <!-- 대학 정보 -->
-                <p class="name">강지원</p> <!-- 이름 -->
+                <p class="university">로딩중</p> <!-- 대학 정보 -->
+                <p class="name"></p> <!-- 이름 -->
             </div>
             <!-- 오른쪽 역할 및 학번 수평 배열 -->
             <div class="role-info">
-                <p class="role">감사</p> <!-- 역할 -->
-                <p class="id">201911111</p> <!-- 학번 -->
+                <p class="role"></p> <!-- 역할 -->
+                <p class="id"></p> <!-- 학번 -->
             </div>
         </div>
 
@@ -94,9 +94,27 @@
                 <p>미승인</p>
                 <p>장부보기</p>
             </button>
+            <button class="menu-btn" id="openModalBtn">
+                <img src="../../resource/icons/icons8-영수증-24.png" alt="icon4">
+                <p>가입링크</p>
+                <p>생성하기</p>
+            </button>
         </div>
     </div>
 </div>
+
+<div id="signupModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" id="closeModalBtn">&times;</span>
+        <h2>가입 링크 생성</h2>
+        <div class="link-container">
+            <input type="text" id="linkResultText" class="link-input" readonly value="https://example.com/signup-link">
+            <button id="copyLinkBtn" class="copy-btn">복사</button>
+        </div>
+    </div>
+</div>
+
+
 
 
     <!-- 푸터 (메인화면으로 돌아가는 버튼) -->
@@ -106,7 +124,8 @@
     
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="../../js/main/main_manager.js"></script>
+    <script src="../../js/main/main_auditor.js"></script>
+    <script src="../../js/main/main_info.js"></script>
     <script>
         function myPage() {
             window.location.href = '../myPage/myPage.html';
