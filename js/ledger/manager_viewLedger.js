@@ -146,3 +146,5 @@ $(document).ready(function() {
 
 window.handleSearch=handleSearch;
 window.navigateToDetail=navigateToDetail;
+window.setDefaultDates=setDefaultDates;
+window.showTab=showTab;
