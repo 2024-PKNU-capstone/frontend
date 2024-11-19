@@ -8,14 +8,29 @@
     "description": "장부 관리의 투명성과 효율성을 높이는 어플리케이션",
     "icons": [
       {
-        "src": "/resource/icons/icon_512.png",
+        "src": "/resource/icons/logo-512.png",
         "sizes": "512x512",
         "type": "image/png"
       },
       {
-        "src": "/resource/icons/icon_192.png",
+        "src": "/resource/icons/logo-192.png",
         "sizes": "192x192",
         "type": "image/png"
       }
-    ]
+    ],
+    "screenshots": [
+    {
+        "src": "/resource/icons/screenshot2.png",
+        "sizes": "1280x720",
+        "type": "image/png",
+        "form_factor": "wide"
+    },
+    {
+        "src": "/resource/icons/screenshot1.png",
+        "sizes": "720x1280",
+        "type": "image/png",
+        "form_factor": "narrow"
+    }
+]
+    
   }
