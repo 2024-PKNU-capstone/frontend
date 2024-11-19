@@ -77,8 +77,9 @@
     onchange="showPreview(event)": 파일이 선택되면 showPreview 함수를 호출하여 미리보기 업데이트
   -->
 
-  <script>
+  <script type="module">
     import { API_BASE_URL} from '../../config.js';
+
     function showPreview(event) {
         const file = event.target.files[0]; // 선택된 파일
         if (file) {
@@ -96,9 +97,6 @@
             alert("파일을 선택하지 않았습니다.");
         }
     }
-
-
-
     function uploadReceipt() {
     const fileInput = document.getElementById('cameraInput'); // 파일 입력 필드 선택
     const files = fileInput.files; // 선택된 파일 목록
@@ -147,6 +145,8 @@
       }
   });
 }
+window.showPreview=showPreview;
+window.uploadReceipt=uploadReceipt;
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="module"  src="../../js/main/main_info.js"></script>
