@@ -137,3 +137,8 @@ $(document).ready(function() {
     loadAccountBooks('PENDING', 'pending-account-book-list', fromDate, toDate);
 
 });
+
+window.navigateToDetail=navigateToDetail;
+window.handleSearch=handleSearch;
+window.setDefaultDates=setDefaultDates;
+window.showTab=showTab;

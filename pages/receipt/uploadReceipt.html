@@ -78,6 +78,7 @@
   -->
 
   <script>
+    import { API_BASE_URL} from '../../config.js';
     function showPreview(event) {
         const file = event.target.files[0]; // 선택된 파일
         if (file) {
@@ -123,7 +124,7 @@
 
     // AJAX 요청을 통해 서버에 파일 업로드
     $.ajax({
-      url: 'http://localhost:8080/api/upload/receipt', // 서버 API URL
+      url: `${API_BASE_URL}/api/upload/receipt`, // 서버 API URL
       type: 'POST', // HTTP 메서드: POST 사용
       headers: {
         "Authorization": `Bearer ${localStorage.getItem('accessToken')}`, // 인증 토큰 (API 명세서에 따라 변경)

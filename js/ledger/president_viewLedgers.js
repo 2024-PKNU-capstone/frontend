@@ -162,3 +162,6 @@ $(document).ready(function() {
 });
 
 window.navigateToDetail=navigateToDetail;
+window.handleSearch=handleSearch;
+window.setDefaultDates=setDefaultDates;
+window.showTab=showTab;
