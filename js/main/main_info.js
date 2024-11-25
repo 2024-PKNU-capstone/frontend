@@ -53,3 +53,45 @@ document.addEventListener('DOMContentLoaded', function() {
 document.getElementById('identifier-btn').addEventListener('click', function () {
     window.location.href = '/pages/payed/payedInfo.html'; // payedInfo.html 경로로 이동
 });
+// 납부자 버튼 클릭 시 payedInfo.html로 이동
+document.getElementById('home-btn').addEventListener('click', function () {
+    // 메인 페이지 URL 요청
+    fetch(`${API_BASE_URL}/api/role/main`, {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${localStorage.getItem('accessToken')}`, // 인증 토큰을 헤더에 추가
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(response => {
+            if (response.ok) {
+                return response.json(); // JSON 응답을 반환
+            } else {
+                throw new Error('메인 페이지 URL 요청 실패');
+            }
+        })
+        .then(data => {
+            console.log(data)
+            const mainPageUrl = data.data;
+            if (mainPageUrl) {
+                // 서버에서 받은 메인 페이지 URL로 이동
+                window.location.href = '/pages/main/' + data.data;
+            } else {
+
+            }
+        })
+        .catch(error => {
+            console.error('메인 페이지 요청 중 오류 발생:', error);
+            // 오류 발생 시 기본 페이지로 이동
+            window.location.href = '/.html';
+        });
+});
+
+// 납부자 버튼 클릭 시 payedInfo.html로 이동
+document.getElementById('ledger-btn').addEventListener('click', function () {
+    window.location.href = '/pages/ledger/role/normalLedgers.html'; // payedInfo.html 경로로 이동
+});
+// 납부자 버튼 클릭 시 payedInfo.html로 이동
+document.getElementById('mypage-btn').addEventListener('click', function () {
+    window.location.href = '/pages/mypage/myPage.html'; // payedInfo.html 경로로 이동
+});

@@ -3,6 +3,7 @@ import { API_BASE_URL } from '../../config.js';
 let currentPage = 0; // 현재 페이지 번호
 let totalPages = Infinity; // 초기값 무한대로 설정
 let isLoading = false; // 로딩 중인지 확인
+let allUsers = []; // 모든 사용자 데이터를 저장
 const userListDiv = document.getElementById('payed-user-list');
 const token = localStorage.getItem('accessToken');
 const accessToken = `Bearer ${token}`;
@@ -10,7 +11,7 @@ const accessToken = `Bearer ${token}`;
 // 무한 스크롤 트리거 요소 추가
 const loadMoreTrigger = document.createElement('div');
 loadMoreTrigger.id = 'loadMoreTrigger';
-userListDiv.after(loadMoreTrigger); // 유저 목록 아래에 트리거 요소 추가
+userListDiv.after(loadMoreTrigger); // 유저 목록 아래에 트리거 추가
 
 document.addEventListener('DOMContentLoaded', () => {
     fetchUserList(currentPage); // 초기 데이터 로드
@@ -23,6 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     observer.observe(loadMoreTrigger); // 트리거 요소 관찰 시작
+
+    // 검색 필드 이벤트 리스너 추가
+    document.getElementById('search-input').addEventListener('input', filterUserList);
 });
 
 // 유저 목록 요청 함수
@@ -49,6 +53,7 @@ function fetchUserList(page) {
             const users = data.data.users;
             totalPages = data.data.totalPages; // 전체 페이지 수 업데이트
             if (users.length > 0) {
+                allUsers = [...allUsers, ...users]; // 전체 사용자 데이터 업데이트
                 renderUserList(users); // 유저 목록 렌더링
                 currentPage++; // 다음 페이지로 설정
             } else if (currentPage === 0) {
@@ -77,4 +82,16 @@ function renderUserList(users) {
 
         userListDiv.appendChild(userItem);
     });
+}
+
+// 유저 목록 검색 필터링 함수
+function filterUserList() {
+    const searchValue = document.getElementById('search-input').value.toLowerCase(); // 검색어
+    const filteredUsers = allUsers.filter(user =>
+        user.name.toLowerCase().includes(searchValue)
+    ); // 이름 필터링
+
+    // 기존 목록 초기화 및 필터링된 사용자 목록 렌더링
+    userListDiv.innerHTML = '';
+    renderUserList(filteredUsers);
 }
