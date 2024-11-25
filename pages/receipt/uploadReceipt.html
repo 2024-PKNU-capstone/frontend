@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="../../CSS/receipt/uploadReceipt.css">
   <!-- jQuery 라이브러리 추가 -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
   <!-- 헤더 시작 -->
@@ -76,27 +77,62 @@
     style="display:none": 화면에 표시되지 않도록 숨김
     onchange="showPreview(event)": 파일이 선택되면 showPreview 함수를 호출하여 미리보기 업데이트
   -->
+  <div class="footer">
+    <button class="footer-btn" id="home-btn">
+        <i class="fas fa-home"></i> <!-- 홈 아이콘 -->
+        <span>홈</span>
+    </button>
+    <button class="footer-btn" id="ledger-btn">
+        <i class="fas fa-book"></i> <!-- 장부보기 아이콘 -->
+        <span>장부</span>
+    </button>
+    <button class="footer-btn" id="identifier-btn">
+        <i class="fas fa-id-card"></i> <!-- 납부자 식별 아이콘 -->
+        <span>납부자</span>
+    </button>
+    <button class="footer-btn" id="mypage-btn">
+        <i class="fas fa-user"></i> <!-- 마이페이지 아이콘 -->
+        <span>마이</span>
+    </button>
+</div>
 
   <script type="module">
     import { API_BASE_URL} from '../../config.js';
 
     function showPreview(event) {
-        const file = event.target.files[0]; // 선택된 파일
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function (e) {
-                const preview = document.getElementById("preview");
-                const addIcon = document.getElementById("add-icon");
+      const file = event.target.files[0]; // 선택된 파일
+      if (file) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+              const preview = document.getElementById("preview");
+              const addIcon = document.getElementById("add-icon");
+              const previewContainer = document.querySelector(".preview-container");
 
-                preview.src = e.target.result; // 이미지 소스 설정
-                preview.style.display = "block"; // 미리보기 이미지 표시
-                addIcon.style.display = "none"; // '+' 아이콘 숨김
-            };
-            reader.readAsDataURL(file); // 파일을 Base64로 변환하여 읽음
-        } else {
-            alert("파일을 선택하지 않았습니다.");
-        }
-    }
+              // 이미지 소스 설정
+              preview.src = e.target.result;
+
+              // 이미지 로드 후 비율에 따라 컨테이너 크기 조정
+              preview.onload = () => {
+                  const aspectRatio = preview.naturalWidth / preview.naturalHeight;
+                  if (aspectRatio > 1) {
+                      // 가로가 더 긴 경우
+                      previewContainer.style.height = "200px"; // 고정된 높이
+                      previewContainer.style.width = `${200 * aspectRatio}px`;
+                  } else {
+                      // 세로가 더 긴 경우
+                      previewContainer.style.width = "100%"; // 고정된 너비
+                      previewContainer.style.height = `${200 / aspectRatio}px`;
+                  }
+                  preview.style.display = "block"; // 미리보기 이미지 표시
+                  addIcon.style.display = "none"; // '+' 아이콘 숨김
+              };
+          };
+          reader.readAsDataURL(file); // 파일을 Base64로 변환하여 읽음
+      } else {
+          alert("파일을 선택하지 않았습니다.");
+      }
+  }
+
     function uploadReceipt() {
     const fileInput = document.getElementById('cameraInput'); // 파일 입력 필드 선택
     const files = fileInput.files; // 선택된 파일 목록

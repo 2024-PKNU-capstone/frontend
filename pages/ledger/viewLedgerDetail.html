@@ -6,6 +6,7 @@
     <title>장부 상세</title>
     <link rel="stylesheet" href="../../CSS/main.css">
     <link rel="stylesheet" href="../../CSS/ledger/viewLedgerDetail.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <!-- 헤더 시작 -->
@@ -45,6 +46,33 @@
         <div class="usage-section">
             <div class ="account-book-detail" id="account-book-detail"></div>
             <!-- 승인/반려 버튼 섹션 -->
+             <!-- 상단 정보 -->
+      <header>
+        <p class="department-info">부경대학교 컴퓨터공학부 장부</p>
+        <div class="date-document">
+            <h1 class="date">2024-03-28</h1>
+            <p class="document-number">2024032801</p>
+        </div>
+            </header>
+            
+            <!-- 사용 목적 -->
+            <h3>사용목적</h3>
+            <p class="usage-purpose">핑크캠퍼스 물품 구입</p>
+
+            <!-- 사용 금액 -->
+            <h3>사용금액</h3>
+            <p class="usage-amount">300,000원</p>
+
+            <!-- 상세 설명 -->
+            <h3>상세설명</h3>
+            <p class="usage-descript">핑크캠퍼스 부스 운영을 위해 행사에 필요한 물품을 구매하였음.</p>
+
+            <!-- 영수증 상세 내역 -->
+            <h3>영수증 상세 내역</h3>
+            <div class="receipt-detail">
+                <img src="../../resource/icons/영수증.jpg" width="100%">
+            </div>
+            <br><br>
             <div class="approval-section" id="approval-detail">
             </div>
         </div>
@@ -70,7 +98,7 @@
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="module"  src="../../js/ledger/viewLedgerDetail.js"></script> <!-- JS 파일 분리하여 로드 -->
+    <!--<script type="module"  src="../../js/ledger/viewLedgerDetail.js"></script> -->
     <script type="module"  src="../../js/main/main_info.js"></script> <!-- JS 파일 분리하여 로드 -->
 </body>
 </html>

@@ -1,0 +1,241 @@
+/* 장부 리스트 섹션 */
+.payed-info-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative; /* 새로고침 버튼을 이 영역에 고정 */
+    margin-bottom: 50px;
+}
+
+.payed-info-section h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #343a40;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    max-width: 90%;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.modal-content {
+    padding: 20px;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.payed-list {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.payed-item {
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.payed-item:hover {
+    background-color: #f1f1f1;
+}
+
+.payed-item.selected {
+    background-color: #ffeb99;
+    border-color: #ffa500;
+}
+
+.register-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.register-btn:hover {
+    background-color: #45a049;
+}
+
+/* payed-card 디자인 */
+.payed-card {
+    background: linear-gradient(135deg, #ff5226, #feb47b);
+    border-radius: 15px;
+    color: white;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    position: relative; /* 자식 요소의 위치를 제어하기 위해 필요 */
+}
+
+/* 인증 마크 스타일 */
+.certification-mark {
+    position: absolute; /* 카드 내부에서 위치 조정 */
+    top: 15px; /* 상단에서 10px */
+    right: 15px; /* 오른쪽에서 10px */
+    width: 40px; /* 아이콘 크기 */
+    height: 40px; /* 아이콘 크기 */
+    z-index: 10; /* 카드 위에 표시되도록 설정 */
+}
+
+/* 제목 스타일 */
+.payed-card h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* payed-info 스타일 (세로 정렬) */
+.payed-info {
+    display: flex;
+    flex-direction: column; /* 세로 정렬 */
+    align-items: flex-start; /* 중앙 정렬 */
+    margin-bottom: 15px; /* 아래쪽 여백 */
+}
+
+/* 텍스트 스타일 */
+.payed-info p {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    text-align: center; /* 텍스트 중앙 정렬 */
+}
+
+.payed-info span {
+    font-weight: bold;
+}
+
+
+/* 왼쪽: 대학 정보와 이름 */
+.profile-left {
+    text-align: left;
+    width: 50%;
+}
+
+#university {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#name {
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+/* 오른쪽: 역할과 학번 */
+.role-info {
+    text-align: right;
+    width: 50%;
+}
+
+#role, #student-id {
+    font-size: 14px;
+}
+
+/* 푸터 스타일 */
+.payed-footer {
+    margin-top: 15px;
+}
+
+/* 인증 날짜 */
+#certification-date {
+    font-size: 14px;
+    margin-top: 15px;
+    opacity: 0.9;
+}
+
+#card-name{
+    font-size: 100%;
+    text-align: left;
+}
+
+
+/* 이름 텍스트 스타일 */
+#card-name {
+    font-size: 24px; /* 이름 크기 키우기 */
+    font-weight: bold;
+    color: #fff; /* 추가적으로 색상을 강조 */
+}
+
+/* 버튼 스타일 */
+.add-account-btn {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-account-btn:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+}
+
+/* 기본적으로 메시지를 숨김 */
+.hidden {
+    display: none;
+}
+
+/* 메시지 스타일 */
+#payed-message {
+    font-size: 14px;
+    color: #ffdddd; /* 빨간색 톤으로 강조 */
+    margin: 10px 0;
+    text-align: center;
+}
+
+/* payed-footer 스타일 */
+.payed-footer {
+    display: flex;
+    flex-direction: column; /* 세로 정렬 */
+    align-items: center; /* 수평 중앙 정렬 */
+    justify-content: center; /* 수직 중앙 정렬 */
+    gap: 10px; /* 메시지와 버튼 사이 간격 */
+}
+
+/* 메시지 스타일 */
+#payed-message {
+    font-size: 14px;
+    color: #ffdddd; /* 빨간색 톤으로 강조 */
+    text-align: center;
+}
+
+

@@ -40,6 +40,8 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('.id').textContent = userInfo.data.number;
 
             
+
+            
         })
         .catch(error => {
             console.error('프로필 정보를 불러오는 중 오류 발생:', error);
@@ -47,3 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// 납부자 버튼 클릭 시 payedInfo.html로 이동
+document.getElementById('identifier-btn').addEventListener('click', function () {
+    window.location.href = '/pages/payed/payedInfo.html'; // payedInfo.html 경로로 이동
+});

@@ -90,11 +90,16 @@
                 <p>영수증</p>
                 <p>등록하기</p>
             </button>
-                            <button class="menu-btn" onclick="viewContributors()">
-                    <img src="../../resource/icons/icons8-문서-서명-32.png" alt="icon2">
-                    <p>납부자</p> 
-                    <p>목록보기</p>
-                </button>
+            <button class="menu-btn" onclick="viewContributors()">
+                <img src="../../resource/icons/icons8-문서-서명-32.png" alt="icon2">
+                <p>납부자</p> 
+                <p>목록보기</p>
+            </button>
+            <button class="menu-btn" onclick="manageContributors()">
+                <img src="../../resource/icons/icons8-문서-서명-32.png" alt="icon2">
+                <p>납부자</p> 
+                <p>관리하기</p>
+            </button>
         </div>
     </div>
     
@@ -153,6 +158,10 @@
 
         function viewNonApproveLedger() {
             window.location.href = '../ledger/viewNonApproveLedger.html';
+        }
+
+        function manageContributors() {
+            window.location.href = '../payed/payedManage.html';
         }
     </script>
 </body>

@@ -1,0 +1,42 @@
+/* 드롭다운 왼쪽 정렬 */
+.dropdown {
+    margin-bottom: 15px;
+    text-align: left; /* 왼쪽 정렬 */
+}
+
+#filter-select {
+    margin-top: 15px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: -15px;
+}
+
+/* 유저 항목 스타일 */
+.user-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.user-item .user-name {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.user-item .user-id {
+    font-size: 14px;
+    color: #888;
+}
+
+/* 상태 점 스타일 */
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
