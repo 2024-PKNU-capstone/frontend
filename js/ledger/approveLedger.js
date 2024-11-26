@@ -27,7 +27,7 @@ function sendApprovalRequest(accountBookId, approval) {
       type: 'POST',
       headers: {
         "Content-Type": "application/json",
-        "Authorization": accessToken // 토큰이 필요한 경우 포함
+        "Authorization": `Bearer ${localStorage.getItem('accessToken')}`
       },
       success: function (response) {
         alert(response.message); // 성공 메시지 표시

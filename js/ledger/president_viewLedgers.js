@@ -61,6 +61,7 @@ function loadAccountBooks(status, targetListId, fromDate, toDate) {
         url = `${API_BASE_URL}/api/account-books/approve`;
     }
 
+    console.log(url);
     $.ajax({
         url: url,
         type: 'GET',
