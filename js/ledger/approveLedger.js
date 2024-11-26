@@ -22,12 +22,14 @@ $(document).ready(function () {
   
 // 승인 및 반려 요청 함수
 function sendApprovalRequest(accountBookId, approval) {
+    const accessToken = "Bearer " + localStorage.getItem('accessToken');
+
     $.ajax({
       url: `${API_BASE_URL}/api/account-books/approve/${accountBookId}?approval=${approval}`, // approval을 URL 파라미터로 전달
       type: 'POST',
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${localStorage.getItem('accessToken')}`
+        "Authorization": accessToken
       },
       success: function (response) {
         alert(response.message); // 성공 메시지 표시
