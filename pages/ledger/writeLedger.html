@@ -45,6 +45,7 @@
         <!-- 사용 내역 섹션 -->
         <div class="usage-section">
             <div class="account-book-detail" id="account-book-detail">
+                <input type="hidden" id="receipt-id" value="">
                 <!-- 상단 정보 -->
                 <header>
                     <p class="department-info">정보융합대학 컴퓨터·인공지능공학부 장부</p>
@@ -73,7 +74,7 @@
 
                 <!-- 등록 버튼 -->
                 <div class="button-section">
-                    <button id="save-btn" onclick="saveDetails()">등록</button>
+                    <button id="save-btn">등록</button>
                 </div>
             </div>
         </div>
@@ -101,5 +102,6 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="module"  src="../../js/main/main_info.js"></script> <!-- JS 파일 분리하여 로드 -->
+    <script type="module"  src="../../js/ledger/writeLedger.js"></script> <!-- JS 파일 분리하여 로드 -->
 </body>
 </html>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>장부 목록</title>
     <link rel="stylesheet" href="../../../CSS/main.css">
-    <link rel="stylesheet" href="../../../CSS/ledger/manager_viewLedger.css">
+    <link rel="stylesheet" href="../../../CSS/ledger/unwriteLedgers.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* 탭 스타일 */
@@ -49,7 +49,7 @@
         }
     </style>
 </head>
-<body onload="setDefaultDates()">
+<body>
     <!-- 헤더 시작 -->
     <div class="app-header-background"></div>
     <header class="app-header">
@@ -82,18 +82,7 @@
         </div>
         <div class="account-book-section">
             <h2>미등록 장부</h2>
-                <div class="date-selection">
-                    <div class ="date-label-date">
-                        <label for="public-from-date">조회 시작일:</label>
-                        <input type="date" id="public-from-date" class="from-date">
-                    </div>
-                    <div class ="date-label-date">
-                        <label for="public-to-date">조회 종료일:</label>
-                        <input type="date" id="public-to-date" class="to-date">
-                    </div>
-                    <button>조회</button>
-                </div>
-                <div class="account-book-list" id="public-account-book-list"></div>
+            <div id="transaction-list" class="transaction-list"></div>
         </div>
     </div>
     <!-- 푸터 -->
@@ -117,5 +106,6 @@
     </div>
     <script type="module"  src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="module"  src="../../../js/main/main_info.js"></script>
+    <script type="module"  src="../../../js/ledger/unwrittenLedgers.js"></script>
 </body>
 </html>

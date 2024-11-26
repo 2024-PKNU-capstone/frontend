@@ -1,0 +1,37 @@
+/* 장부 리스트 섹션 */
+.account-book-section {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative; /* 새로고침 버튼을 이 영역에 고정 */
+}
+
+.transaction-list {
+    margin: 5px;
+}
+
+.transaction-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.transaction-detail {
+    flex: 1;
+}
+
+.transaction-amount {
+    font-weight: bold;
+}
+
+.transaction-amount.positive {
+    color: green;
+}
+
+.transaction-amount.negative {
+    color: red;
+}
