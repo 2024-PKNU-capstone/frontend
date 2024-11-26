@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
         })
             .then(response => response.ok ? response.json() : Promise.reject('데이터 로드 실패'))
             .then(data => {
+                console.log(data)
                 const { transactions, totalPages: total } = data.data;
                 if (transactions && transactions.length > 0) {
                     displayTransactions(transactions);
@@ -49,6 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const item = document.createElement('div');
             item.className = 'transaction-item';
             item.dataset.transactionId = transaction.Id; // 거래 ID를 데이터 속성에 저장
+
     
             // 금액에 따른 스타일 지정
             const amount = parseFloat(transaction.amount);

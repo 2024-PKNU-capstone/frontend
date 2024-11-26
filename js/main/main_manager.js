@@ -2,9 +2,37 @@ import { API_BASE_URL} from '../../config.js';
 
 document.addEventListener('DOMContentLoaded', function() {
     const checkAccountBtn = document.getElementById('add-account-btn');
+
     saveTokenToLocalStorage();
-    fetchTransactions(); // 페이지 시작 시 거래내역 업데이트 요청 추가
     fetchIsVerified();
+
+    function shouldFetchTransactions() {
+        const accountInfoDiv = document.querySelector('.account-info');
+        if (!accountInfoDiv) {
+            console.log("거래내역호출안함");
+            return false; // account-info 요소가 없으면 호출하지 않음
+        }
+    
+        // "계좌 정보가 없습니다." 메시지가 포함되어 있는지 확인
+        const noAccountText = accountInfoDiv.textContent.includes("계좌 정보가 없습니다.");
+        if (!noAccountText) {
+            console.log("Account info already exists. Skipping fetchTransactions.");
+            return false; // 잔액 정보가 있는 경우 호출하지 않음
+        }
+    
+        return true; // "계좌 정보가 없습니다." 메시지가 있으면 호출
+    }
+    
+    // 거래내역을 업데이트하는 함수
+    function fetchTransactionsIfNeeded() {
+        if (shouldFetchTransactions()) {
+            fetchTransactions();
+        }
+    }
+
+    
+    fetchTransactionsIfNeeded(); // 페이지 시작 시 거래내역 업데이트 요청 추가
+    
 
     let selectedFintechUseNum = null; // 선택한 계좌의 fintech_use_num을 저장하는 변수
 
@@ -324,7 +352,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 페이지가 로드되면 거래내역을 불러옴
     fetchTransactionList();
-    fetchAccountBalance()
+    fetchAccountBalance();
 
     // "See all" 클릭 시 거래내역 페이지로 이동
     document.getElementById('seeAll').addEventListener('click', function() {
