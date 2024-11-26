@@ -7,10 +7,11 @@ const accessToken = `Bearer ${token}`;
 // 현재 날짜와 해당 연도의 1월 1일을 기본값으로 설정
 function setDefaultDates() {
     const today = new Date();
+    today.setDate(today.getDate() + 1); // 오늘 날짜에서 1일 추가하여 내일 날짜로 변경
     const startOfYear = new Date(today.getFullYear(), 0, 1); // 현재 연도의 1월 1일 설정
 
     // 날짜를 'YYYY-MM-DD' 형식으로 포맷
-    const formattedToday = today.toISOString().split('T')[0];
+    const formattedToday = (today).toISOString().split('T')[0];
     const formattedStartOfYear = startOfYear.toISOString().split('T')[0];
 
     // 각 날짜 필드에 값 설정
@@ -125,7 +126,7 @@ function displayAccountBooks(accountBooks, targetListId,status) {
 function navigateToDetail(accountBookId, status) {
     console.log(status)
     const detailPage = status === 'PENDING' ? 'approveLedgerDetail.html' : 'viewLedgerDetail.html';
-    window.location.href = `../../pages/ledger/${detailPage}?id=${accountBookId}`;
+    window.location.href = `/pages/ledger/${detailPage}?id=${accountBookId}`;
 }
 
 

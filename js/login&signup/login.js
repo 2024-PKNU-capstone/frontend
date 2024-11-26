@@ -24,8 +24,7 @@ function login() {
         if (data.code === 200) {
             const accessToken = data.data.accessToken;
             localStorage.setItem('accessToken', accessToken);
-            console.log(accessToken);
-            alert('로그인 성공 ' + accessToken);
+            alert('로그인 성공');
 
             // 메인 페이지 URL 요청
             return fetch(`${API_BASE_URL}/api/role/main`, {

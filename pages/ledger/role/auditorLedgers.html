@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>장부 상세</title>
-    <link rel="stylesheet" href="../../CSS/main.css">
-    <link rel="stylesheet" href="../../CSS/ledger/viewLedgerDetail.css">
+    <title>장부 목록</title>
+    <link rel="stylesheet" href="../../../CSS/main.css">
+    <link rel="stylesheet" href="../../../CSS/ledger/manager_viewLedger.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -32,21 +32,33 @@
         <div class="profile-section">
             <!-- 왼쪽 대학 정보 및 이름 수직 배열 -->
             <div class="profile-left">
-                <p class="university">로딩중</p> <!-- 대학 정보 -->
-                <p class="name"></p> <!-- 이름 -->
+                <p class="university">부경대학교 컴퓨터공학부</p> <!-- 대학 정보 -->
+                <p class="name">박기재</p> <!-- 이름 -->
             </div>
             <!-- 오른쪽 역할 및 학번 수평 배열 -->
             <div class="role-info">
-                <p class="role"></p> <!-- 역할 -->
-                <p class="id"></p> <!-- 학번 -->
+                <p class="role">총무</p> <!-- 역할 -->
+                <p class="id">201911111</p> <!-- 학번 -->
             </div>
         </div>
-        
-        <!-- 사용 내역 섹션 -->
-        <div class="usage-section">
-            <div class ="account-book-detail" id="account-book-detail"></div>
+
+        <div class ="account-book-section" >
+            <h2>승인대기중 장부</h2>
+            <div class="date-selection">
+                <div class ="date-label-date">
+                    <label for="pending-from-date">조회 시작일:</label>
+                    <input type="date" id="pending-from-date" class="from-date">
+                </div>
+                <div class ="date-label-date">
+                    <label for="pending-to-date">조회 종료일:</label>
+                    <input type="date" id="pending-to-date" class="to-date">
+                </div>
+                <button onclick="handleSearch('pending', 'PENDING', 'pending-from-date', 'pending-to-date', 'pending-account-book-list')">조회</button>
+            </div>
+            <div class="account-book-list" id="pending-account-book-list"></div>
+        </div>
     </div>
-    
+    <!-- 푸터 (메인화면으로 돌아가는 버튼) -->
     <div class="footer">
         <button class="footer-btn" id="home-btn">
             <i class="fas fa-home"></i> <!-- 홈 아이콘 -->
@@ -66,8 +78,9 @@
         </button>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="module"  src="../../js/ledger/viewLedgerDetail.js"></script>
-    <script type="module"  src="../../js/main/main_info.js"></script> <!-- JS 파일 분리하여 로드 -->
+    <script type="module"  src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="module"  src="../../../js/ledger/viewLedger.js"></script>
+    <script type="module"  src="../../../js/main/main_info.js"></script>
 </body>
 </html>
+
