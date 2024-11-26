@@ -22,7 +22,8 @@ $(document).ready(function () {
   
 // 승인 및 반려 요청 함수
 function sendApprovalRequest(accountBookId, approval) {
-    const accessToken = "Bearer " + localStorage.getItem('accessToken');
+    const token = localStorage.getItem('accessToken');
+    const accessToken = `Bearer ${token}`;
 
     $.ajax({
       url: `${API_BASE_URL}/api/account-books/approve/${accountBookId}?approval=${approval}`, // approval을 URL 파라미터로 전달
